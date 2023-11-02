@@ -2072,17 +2072,17 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 	while coolbrothatsnice == true do
 		local Robberys = {
 			['1'] = 'Bank',
-			['2'] = 'Jewelry Store',
+			['2'] = 'Jewelrys',
 			['3'] = 'Museum',
-			['4'] = 'Power Plant',
-			['5'] = 'Passenger Train',
-			['6'] = 'Cargo Train',
-			['7'] = 'Cargo Ship',
+			['4'] = 'PowerPlant',
+			['5'] = 'PassengerTrain',
+			['6'] = 'CargoTrain',
+			['7'] = 'CargoShip',
 			['8'] = 'Cargo Plane',
-			['9'] = 'Gas Station',
-			['10'] = 'Donut Store',
-			['11'] = 'Money Truck',
-			['12'] = 'Home Vault',
+			['9'] = 'GasStation',
+			['10'] = 'DonutShop',
+			['11'] = 'MoneyTruck',
+			['12'] = 'HomeVault',
 			['13'] = 'Tomb',
 			['14'] = 'Casino',
 			['15'] = 'Mansion'
@@ -2111,9 +2111,9 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 			end
 		end
 
-		local JewlStatus = is_opened("Jewelry Store")
+		local JewlStatus = is_opened("Jewelrys")
 		if JewlStatus == "open" or JewlStatus == "stealing" then
-			print(is_opened("Jewelry Store"))
+			print(is_opened("Jewelrys"))
 			print("Going to Jewl Store")
 
 			wait()
