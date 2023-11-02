@@ -2120,9 +2120,9 @@ features:AddSwitch("Autofarm",function(chickenchickench)
 			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 
 			teleport(CFrame.new(150, 18, 1373));
-		end 	
+			
 			wait()
-		
+		end 
 		end
 	end)
 
