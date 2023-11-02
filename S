@@ -87,7 +87,7 @@ Start.MouseButton1Click:Connect(function()
 	if is_opened("Tomb") == "Open" or is_opened("Tomb") == "Closed" then
 		print(is_opened("Tomb"))
 wait(2)
-local teleport = loadstring(game:HttpGet("https://pastebin.com/raw/CJv2dywH"))();
+local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 		teleport(CFrame.new(547.893798828125, 26.00324058532715, -478.97216796875))
 		wait(2)
 		local pos = Vector3.new(544.590576171875, 22.65839958190918, -546.1925048828125) -- your pos here
