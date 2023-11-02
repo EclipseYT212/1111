@@ -2113,7 +2113,7 @@ features:AddSwitch("Autofarm",function(chickenchickench)
 		end
 
 		local JewlStatus = is_opened("Jewelrys")
-		if JewlStatus == "open" or bankStatus == "closed" then
+		if JewlStatus == "open" or bankStatus == "stealing" then
 			print(is_opened("Jewelrys"))
 			print("Going to Jewl Store")
 			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
