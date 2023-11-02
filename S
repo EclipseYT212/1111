@@ -84,20 +84,21 @@ Start.ImageRectSize = Vector2.new(36, 36)
 Start.MouseButton1Click:Connect(function()
 	local Robberys = {
 		['1'] = 'bank',
-		['2'] = 'Jewelrys',
-		['3'] = 'Museum',
-		['4'] = 'PowerPlant',
-		['5'] = 'Passenger Train',
-		['6'] = 'Cargo Train',
-		['7'] = 'CargoShip',
-		['8'] = 'CargoPlane',
-		['9'] = 'GasStations',
-		['10'] = 'DonutShop',
-		['11'] = 'MoneyTruck',
-		['12'] = 'HomeVault',
-		['13'] = 'Tomb',
-		['14'] = 'Casino',
-		['15'] = 'Mansion'
+		['2'] = 'bank2',
+		['3'] = 'Jewelrys',
+		['4'] = 'Museum',
+		['5'] = 'PowerPlant',
+		['6'] = 'Passenger Train',
+		['7'] = 'Cargo Train',
+		['8'] = 'CargoShip',
+		['9'] = 'CargoPlane',
+		['10'] = 'GasStations',
+		['11'] = 'DonutShop',
+		['12'] = 'MoneyTruck',
+		['13'] = 'HomeVault',
+		['14'] = 'Tomb',
+		['15'] = 'Casino',
+		['16'] = 'Mansion'
 	}
 	function get_rob(nome)
 		for i, v in pairs(Robberys) do
@@ -116,15 +117,19 @@ Start.MouseButton1Click:Connect(function()
 			((State.Value == 1 and 'Open') or (State.Value == 2 and 'stealing') or (State.Value == 3 and 'Closed'))
 	end
 
-	if is_opened("Tomb") == "Mummy : Open" or is_opened("Tomb") == "Mummy : stealing" then
+	if is_opened("Tomb") == "Open" or is_opened("Tomb") == "stealing" then
 		print(is_opened("Tomb"))
-	end
+	else
 	if is_opened("Casino") == "Chips : Open" or is_opened("Casino") == "Chips : Closed" then
 		print(is_opened("Casino"))
-	end
 
-	if is_opened("Jewelrys") == "Jewel: Open" or is_opened("Jewelrys") == "Jewel : Closed" then
-		print(is_opened("Jewelrys"))
+
+	else
+		if is_opened("bank") == "Open" or is_opened("bank") == "Closed" then
+			print(is_opened("bank"))
+		else
+
+		
 		-- Check if the condition for your loop has been met
 		if indicator.Transparency == 0.8999999761581421 then
 
@@ -597,11 +602,10 @@ Start.MouseButton1Click:Connect(function()
 
 
 
+			end
+			end
+		end	
 		end
-		if is_opened("bank") == "Open" or is_opened("bank") == "Closed" then
-			print(is_opened("bank"))
-		end
-	end
 end)
 Stop.Name = "Stop"
 Stop.Parent = MainFrame
