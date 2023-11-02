@@ -2112,10 +2112,10 @@ features:AddSwitch("Autofarm",function(chickenchickench)
 			end
 		end
 
-		local bankStatus = is_opened("Bank")
-		if bankStatus == "open" or bankStatus == "closed" then
-			print(is_opened("Bank"))
-			print("Going to bank")
+		local JewlStatus = is_opened("Jewelrys")
+		if JewlStatus == "open" or bankStatus == "closed" then
+			print(is_opened("Jewelrys"))
+			print("Going to Jewl Store")
 			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
 			
    		teleport(CFrame.new(150, 18, 1373));
