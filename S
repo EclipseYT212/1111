@@ -315,7 +315,7 @@ local teleport = loadstring(game:HttpGet("https://pastebin.com/raw/CJv2dywH"))()
 			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 			a:Play()
 		end   
-	else
+	end
 	if is_opened("Casino") == "Chips : Open" or is_opened("Casino") == "Chips : Closed" then
 		print(is_opened("Casino"))
 
@@ -798,7 +798,7 @@ local teleport = loadstring(game:HttpGet("https://pastebin.com/raw/CJv2dywH"))()
 
 
 
-			end
+			
 			end
 		end	
 		end
