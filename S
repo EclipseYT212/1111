@@ -2146,7 +2146,7 @@ wait(1)
 
 
 					wait(1)
-					print"Breaking Glass"
+					print("Breaking Glass")
 					--breaking glass
 					local pos = Vector3.new(132.88629150390625, 18.563629150390625, 1345.051513671875) -- your pos here
 					local delay = 0.50 -- tp tween speed like how many seconds takes to tp
@@ -2164,7 +2164,7 @@ wait(1)
 						a:Play()
 					end
 					wait(1)
-					print"Auto Robbing"
+					print("Auto Robbing")
 
 					--Teleport to inside
 					local pos = Vector3.new(129.39793395996094, 19.205472946166992, 1313.8697509765625) -- your pos here
@@ -2525,44 +2525,44 @@ wait(1)
 
 
 
-					print"Selling!!!"
+					print("Selling!!!")
 
 
 					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 					teleport(CFrame.new(82.78319549560547, 245.3197479248047, 1498.57080078125));
 
 					Baseplate()
-					print"Bypassing by waiting 15"
+					print("Bypassing by waiting 15")
 					wait(1)
-					print"Bypassing by waiting 14"
+					print("Bypassing by waiting 14")
 					wait(1)
-					print"Bypassing by waiting 13"
+					print("Bypassing by waiting 13")
 					wait(1)
-					print"Bypassing by waiting 12"
+					print("Bypassing by waiting 12")
 					wait(1)
-					print"Bypassing by waiting 11"
+					print("Bypassing by waiting 11")
 					wait(1)
-					print"Bypassing by waiting 10"
+					print("Bypassing by waiting 10")
 					wait(1)
-					print"Bypassing by waiting 9"
+					print("Bypassing by waiting 9")
 					wait(1)
-				print"Bypassing by waiting 8"
+				print("Bypassing by waiting 8")
 					wait(1)
-					print"Bypassing by waiting 7"
+					print("Bypassing by waiting 7")
 					wait(1)
-					print "Bypassing by waiting 6"
+					print("Bypassing by waiting 6")
 					wait(1)
-					print "Bypassing by waiting 5"
+					print("Bypassing by waiting 5")
 					wait(1)
-					print"Bypassing by waiting 4"
+					print("Bypassing by waiting 4")
 					wait(1)
-					print"Bypassing by waiting 3"
+					print("Bypassing by waiting 3")
 					wait(1)
 					print("Bypassing by waiting 2")
 					wait(1)
 					print("Bypassing by waiting 1")
 					wait(2)
-					print"Selling"
+					print("Selling")
 					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 					teleport(CFrame.new(-253.45086669921875, 23.148221969604492, 1617.010009765625));
 					BSD()
