@@ -66,7 +66,7 @@ function is_opened(rob)
 		((State.Value == 1 and 'Open') or (State.Value == 2 and 'stealing') or (State.Value == 3 and 'Closed'))
 end
 if is_opened("Tomb") == "Open" or is_opened("Tomb") == "Stealing" then
-
+print(is_opened("Tomb")
 			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 			teleport(CFrame.new(547.893798828125, 26.00324058532715, -478.97216796875))
 			wait(2)
