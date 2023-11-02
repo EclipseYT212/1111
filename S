@@ -1,1216 +1,1606 @@
 local DiscordLib =
-    loadstring(game:HttpGet "https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/discord")()
+	loadstring(game:HttpGet "https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/discord")()
 
 local win = DiscordLib:Window("discord library")
 
 local serv = win:Server("Preview", "")
 
 local btns = serv:Channel("Buttons")
+local game = game
+local player = game.Players.LocalPlayer
+local Museum = game.Workspace.Museum
+local bank2 = game:GetService("Workspace").Banks.Bank.Extra.Sign.Decal
 
+local cargotrain =  game:GetService("Workspace").Trains
+local RoofHolePart = Museum:FindFirstChild("Roof")
+local RoofHoleOpen = false
+local ind = workspace.Jewelrys:FindFirstChild('Sign', true)
+local indicator = ind.Decal
+local RunService = game:GetService("RunService")
+local loopActive = false
 btns:Button(
-    "Kill all",
-    function()
-        DiscordLib:Notification("Notification", "Killed everyone!", "Okay!")
-    end
+	"Kill all",
+	function()
+		DiscordLib:Notification("Notification", "Killed everyone!", "Okay!")
+	end
 )
 
 btns:Seperator()
 
 btns:Button(
-    "Get max level",
-    function()
-        DiscordLib:Notification("Notification", "Max level!", "Okay!")
-    end
+	"Get max level",
+	function()
+		DiscordLib:Notification("Notification", "Max level!", "Okay!")
+	end
 )
 
 local tgls = serv:Channel("Toggles")
 
 tgls:Toggle(
-    "Auto-Farm",
-    false,
-    function(bool)
-      while wait(3) do 
-
-local Robberys = {
-	['1'] = 'bank',
-	['2'] = 'bank2',
-	['3'] = 'Jewelrys',
-	['4'] = 'Museum',
-	['5'] = 'PowerPlant',
-	['6'] = 'PassengerTrain',
-	['7'] = 'CargoTrain',
-	['8'] = 'CargoShip',
-	['9'] = 'CargoPlane',
-	['10'] = 'GasStations',
-	['11'] = 'DonutShop',
-	['12'] = 'MoneyTruck',
-	['13'] = 'HomeVault',
-	['14'] = 'Tomb',
-	['15'] = 'Casino',
-	['16'] = 'Mansion'
-}
-function get_rob(nome)
-	for i, v in pairs(Robberys) do
-		if v:lower() == nome:lower() then
-			return i
-		end
-	end
-end
-
-function is_opened(rob)
-	local roubo = get_rob(rob)
-
-	local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(roubo)
-
-	return (tostring(State) == 'nil' and 'Closed') or
-		((State.Value == 1 and 'Open') or (State.Value == 2 and 'stealing') or (State.Value == 3 and 'Closed'))
-end
-if is_opened("Casino") == "Open" or is_opened("Casino") == "Stealing" then
-
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Teleporting to the Casino"; -- the title 
-			Text = "Explosive Menu"; -- what the text says 
-			Duration = 10; -- how long the notification should in secounds
-		})
-
-		local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
-		teleport(CFrame.new(-249.948486328125, 23.976511001586914, -4661.296875))
-		wait(1)
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Robbing...."; -- the title 
-			Text = "Explosive Menu"; -- what the text says 
-			Duration = 10; -- how long the notification should in secounds
-		})
-
-		wait(1)
-		local pos = Vector3.new(-185.13201904296875, 19.877317428588867, -4682.09521484375) -- your pos here
-		local delay = 8 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-		wait(12)
-		local pos = Vector3.new(-75.57755279541016, 19.103355407714844, -4719.4013671875) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-		wait(8)
-		local pos = Vector3.new(-57.25518035888672, 19.929697036743164, -4634.249511718755) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-		wait(8)
-		local pos = Vector3.new(61.0252571105957, 19.929697036743164, -4676.18505859375) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-		wait(8)
-		local pos = Vector3.new(53.26105499267578, 19.929697036743164, -4708.5546875) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-		wait(1)
-		local args = {
-			[1] = "2457",
-			[1] = "5028",
-			[1] = "3380"
-		}
-
-		workspace:WaitForChild("Casino"):WaitForChild("RobberyDoor"):WaitForChild("Keypad"):WaitForChild("Pad"):WaitForChild("CasinoKeypadSubmit"):FireServer(unpack(args))
-		wait(1)
-		local pos = Vector3.new(46.62722396850586, 19.88067626953125, -4733.8359375) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-		wait(5)
-		local pos = Vector3.new(-15.923542976379395, 19.88067626953125, -4737.611328125) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-		wait(5)
-		local pos = Vector3.new(-15.923542976379395, 19.88067626953125, -4737.611328125) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		local pos = Vector3.new(-15.923542976379395, 19.88067626953125, -4737.611328125) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		--beginning of laptops+
-		local pos = Vector3.new(-110.7985610961914, 73.12210083007812, -4610.15185546875) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		--beginning of laptops+
-		local pos = Vector3.new(-58.74448776245117, 73.13204956054688, -4624.92333984375) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		--beginning of laptops+
-		--2nd laptop
-		local pos = Vector3.new(-78.99031829833984, 73.13204956054688, -4619.10595703125) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		--beginning of laptops+
-		local pos = Vector3.new(-58.74448776245117, 73.13204956054688, -4624.92333984375) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		--beginning of laptops+
-		local pos = Vector3.new(-46.8404541015625, 73.12216186523438, -4628.333984375) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		--beginning of laptops+
-		local pos = Vector3.new(-24.962724685668945, 73.1221694946289, -4634.734375) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		--beginning of laptops+
-		local pos = Vector3.new(-3.3408281803131104, 73.13223266601562, -4640.86279296875) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		--beginning of laptops+
-		local pos = Vector3.new(3.752683401107788, 73.13229370117188, -4643.49609375) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		--beginning of laptops+
-		local pos = Vector3.new(29.478313446044922, 73.13229370117188, -4650.5078125) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		--beginning of laptops+
-		local pos = Vector3.new(53.801265716552734, 73.13229370117188, -4657.15234375) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		--beginning of laptops+
-		local pos = Vector3.new(64.98200225830078, 73.1222915649414, -4660.33740234375) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		--beginning of laptops+
-		local pos = Vector3.new(-13.397501945495605, 73.13119506835938, -4670.01806640625) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		--beginning of laptops+
-		local pos = Vector3.new(-78.99031829833984, 73.13204956054688, -4619.10595703125) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)
-		--back casino
-		local pos = Vector3.new(-44.969608306884766, 69.57959747314453, -4657.91162109375) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)   
-		local pos = Vector3.new(-15.499055862426758, 71.47806549072266, -4740.22509765625) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5) 
-		local pos = Vector3.new(-14.24863338470459, -77.02101135253906, -4744.541015625) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)  
-		local pos = Vector3.new(11.930963516235352, -77.02644348144531, -4746.82080078125) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		local VirtualInputManager = game:GetService('VirtualInputManager')
-
-		VirtualInputManager:SendKeyEvent(true,"E",false,game)
-
-		wait(5)  
-		local pos = Vector3.new(26.928058624267578, -77.27166748046875, -4751.21240234375) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)  
-		local pos = Vector3.new(48.125083923339844, -77.27167510986328, -4667.23779296875) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)  
-		local pos = Vector3.new(23.62175178527832, -77.27167510986328, -4661.197265625) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)  
-		local pos = Vector3.new(23.62175178527832, -77.27167510986328, -4661.197265625) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)  
-		local pos = Vector3.new(38.288169860839844, -77.07501983642578, -4571.92236328125) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)  
-		local pos = Vector3.new(85.00628662109375, -77.07501983642578, -4536.45458984375) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)  
-		local pos = Vector3.new(142.45065307617188, -77.02845001220703, -4525.43994140625) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)  
-		local pos = Vector3.new(169.9488067626953, -77.01850128173828, -4529.34814453125) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)  
-		local pos = Vector3.new(218.64842224121094, -77.1288070678711, -4528.17236328125) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)  
-		local pos = Vector3.new(259.5143127441406, -76.57250213623047, -4591.751953125) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-		--13
-		wait(5)  
-		local pos = Vector3.new(264.51397705078125, -77.23490142822266, -4614.34130859375) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)  
-		local pos = Vector3.new(237.00662231445312, -77.23233032226562, -4604.20556640625) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)  --selling time
-		local teleport = loadstring(game:HttpGet("https://pastebin.com/raw/CJv2dywH"))();
-		teleport(CFrame.new(2276.103271484375, 18.834056854248047, -2060.843994140625));
-
-
-		wait(5)  
-		local pos = Vector3.new(2268.53759765625, 19.568363189697266, -2160.758544921875) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)  
-		local pos = Vector3.new(2211.409423828125, 18.95522117614746, -2481.174560546875) -- your pos here
-		local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-		--18th 
-
-
-	end,     
-})
-
-local Byte2 = FarmTab:CreateToggle({
-	Name = "Petrol Station",
-	Flag = "PS",
-	CurrentValue = false,
-	Callback = function()
-
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Teleporting to the Petrol Station"; -- the title 
-			Text = "Explosive Menu"; -- what the text says 
-			Duration = 10; -- how long the notification should in secounds
-		})
-
-		local teleport = loadstring(game:HttpGet("https://pastebin.com/raw/CJv2dywH"))();
-		teleport(CFrame.new(-1541.2366943359375, 18.396137237548828, 708.3771362304688
-			));
-
-		wait(1)
-
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Robbing...."; -- the title 
-			Text = "Explosive Menu"; -- what the text says 
-			Duration = 10; -- how long the notification should in secounds
-		})
-
-		wait(1)
-		local pos = Vector3.new(-1595.452880859375, 18.496137619018555, 709.9278564453125) -- your pos here
-		local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-
-
-		wait(5)
-		local VirtualInputManager = game:GetService('VirtualInputManager')
-
-		VirtualInputManager:SendKeyEvent(true,"E",false,game)
-
-		local pos = Vector3.new(-1599.4412841796875, 18.496137619018555, 688.7651977539062) -- your pos here
-		local delay = 1 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-		wait(5)
-		local VirtualInputManager = game:GetService('VirtualInputManager')
-
-		VirtualInputManager:SendKeyEvent(true,"E",false,game)
-
-		local pos = Vector3.new(-1599.4412841796875, 18.496137619018555, 688.7651977539062) -- your pos here
-		local delay = 1 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-		wait(4)
-		local pos = Vector3.new(-1595.452880859375, 18.496137619018555, 709.9278564453125) -- your pos here
-		local delay = 1 -- tp tween speed like how many seconds takes to tp
-
-		-- do not edit below cuz breaks script
-
-		local tween_s = game:GetService('TweenService')
-		local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-		local lp = game.Players.LocalPlayer
-
-		if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-			local cf = CFrame.new(pos)
-			local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-			a:Play()
-		end
-
-end
-if is_opened("Tomb") == "Open" or is_opened("Tomb") == "Stealing" then
-print(is_opened("Tomb")
-			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
-			teleport(CFrame.new(547.893798828125, 26.00324058532715, -478.97216796875))
-			wait(2)
-			local pos = Vector3.new(544.590576171875, 22.65839958190918, -546.1925048828125) -- your pos here
-			local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
+	"Auto-Farm",
+	false,
+	function(bool)
+		Baseplate()
+		tgls:Label("Waiting....")
+		while wait(3) do 
+
+			local Robberys = {
+				['1'] = 'bank',
+				['2'] = 'bank2',
+				['3'] = 'Jewelrys',
+				['4'] = 'Museum',
+				['5'] = 'PowerPlant',
+				['6'] = 'PassengerTrain',
+				['7'] = 'CargoTrain',
+				['8'] = 'CargoShip',
+				['9'] = 'CargoPlane',
+				['10'] = 'GasStations',
+				['11'] = 'DonutShop',
+				['12'] = 'MoneyTruck',
+				['13'] = 'HomeVault',
+				['14'] = 'Tomb',
+				['15'] = 'Casino',
+				['16'] = 'Mansion'
+			}
+			function get_rob(nome)
+				for i, v in pairs(Robberys) do
+					if v:lower() == nome:lower() then
+						return i
+					end
+				end
 			end
 
-			wait(5)
-			local pos = Vector3.new(526.6307983398438, -59.352134704589844, -380.4267578125) -- your pos here
-			local delay = 5 -- tp tween speed like how many seconds takes to tp
+			function is_opened(rob)
+				local roubo = get_rob(rob)
 
-			-- do not edit below cuz breaks script
+				local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(roubo)
 
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
+				return (tostring(State) == 'nil' and 'Closed') or
+					((State.Value == 1 and 'Open') or (State.Value == 2 and 'stealing') or (State.Value == 3 and 'Closed'))
 			end
+			if is_opened("Casino") == "Open" or is_opened("Casino") == "Stealing" then
+
+				game.StarterGui:SetCore("SendNotification", {
+					Title = "Teleporting to the Casino"; -- the title 
+					Text = "Explosive Menu"; -- what the text says 
+					Duration = 10; -- how long the notification should in secounds
+				})
+
+				local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
+				teleport(CFrame.new(-249.948486328125, 23.976511001586914, -4661.296875))
+				wait(1)
+				game.StarterGui:SetCore("SendNotification", {
+					Title = "Robbing...."; -- the title 
+					Text = "Explosive Menu"; -- what the text says 
+					Duration = 10; -- how long the notification should in secounds
+				})
+
+				wait(1)
+				local pos = Vector3.new(-185.13201904296875, 19.877317428588867, -4682.09521484375) -- your pos here
+				local delay = 8 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
 
 
-			wait(5)
-			local pos = Vector3.new(523.3025512695312, -59.8855094909668, -340.6943664550781) -- your pos here
-			local delay = 5 -- tp tween speed like how many seconds takes to tp
+				wait(12)
+				local pos = Vector3.new(-75.57755279541016, 19.103355407714844, -4719.4013671875) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
 
-			-- do not edit below cuz breaks script
+				-- do not edit below cuz breaks script
 
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
 
-			local lp = game.Players.LocalPlayer
+				local lp = game.Players.LocalPlayer
 
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+				wait(8)
+				local pos = Vector3.new(-57.25518035888672, 19.929697036743164, -4634.249511718755) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+				wait(8)
+				local pos = Vector3.new(61.0252571105957, 19.929697036743164, -4676.18505859375) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+				wait(8)
+				local pos = Vector3.new(53.26105499267578, 19.929697036743164, -4708.5546875) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+				wait(1)
+				local args = {
+					[1] = "2457",
+					[1] = "5028",
+					[1] = "3380"
+				}
+
+				workspace:WaitForChild("Casino"):WaitForChild("RobberyDoor"):WaitForChild("Keypad"):WaitForChild("Pad"):WaitForChild("CasinoKeypadSubmit"):FireServer(unpack(args))
+				wait(1)
+				local pos = Vector3.new(46.62722396850586, 19.88067626953125, -4733.8359375) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+				wait(5)
+				local pos = Vector3.new(-15.923542976379395, 19.88067626953125, -4737.611328125) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+				wait(5)
+				local pos = Vector3.new(-15.923542976379395, 19.88067626953125, -4737.611328125) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(5)
+				local pos = Vector3.new(-15.923542976379395, 19.88067626953125, -4737.611328125) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(5)
+				--beginning of laptops+
+				local pos = Vector3.new(-110.7985610961914, 73.12210083007812, -4610.15185546875) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(5)
+				--beginning of laptops+
+				local pos = Vector3.new(-58.74448776245117, 73.13204956054688, -4624.92333984375) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(5)
+				--beginning of laptops+
+				--2nd laptop
+				local pos = Vector3.new(-78.99031829833984, 73.13204956054688, -4619.10595703125) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(5)
+				--beginning of laptops+
+				local pos = Vector3.new(-58.74448776245117, 73.13204956054688, -4624.92333984375) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(5)
+				--beginning of laptops+
+				local pos = Vector3.new(-46.8404541015625, 73.12216186523438, -4628.333984375) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(5)
+				--beginning of laptops+
+				local pos = Vector3.new(-24.962724685668945, 73.1221694946289, -4634.734375) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(5)
+				--beginning of laptops+
+				local pos = Vector3.new(-3.3408281803131104, 73.13223266601562, -4640.86279296875) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(5)
+				--beginning of laptops+
+				local pos = Vector3.new(3.752683401107788, 73.13229370117188, -4643.49609375) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(5)
+				--beginning of laptops+
+				local pos = Vector3.new(29.478313446044922, 73.13229370117188, -4650.5078125) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(5)
+				--beginning of laptops+
+				local pos = Vector3.new(53.801265716552734, 73.13229370117188, -4657.15234375) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(5)
+				--beginning of laptops+
+				local pos = Vector3.new(64.98200225830078, 73.1222915649414, -4660.33740234375) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(5)
+				--beginning of laptops+
+				local pos = Vector3.new(-13.397501945495605, 73.13119506835938, -4670.01806640625) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				wait(5)
+				--beginning of laptops+
+				local pos = Vector3.new(-78.99031829833984, 73.13204956054688, -4619.10595703125) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)
+				--back casino
+				local pos = Vector3.new(-44.969608306884766, 69.57959747314453, -4657.91162109375) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)   
+				local pos = Vector3.new(-15.499055862426758, 71.47806549072266, -4740.22509765625) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5) 
+				local pos = Vector3.new(-14.24863338470459, -77.02101135253906, -4744.541015625) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)  
+				local pos = Vector3.new(11.930963516235352, -77.02644348144531, -4746.82080078125) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+				local VirtualInputManager = game:GetService('VirtualInputManager')
+
+				VirtualInputManager:SendKeyEvent(true,"E",false,game)
+
+				wait(5)  
+				local pos = Vector3.new(26.928058624267578, -77.27166748046875, -4751.21240234375) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)  
+				local pos = Vector3.new(48.125083923339844, -77.27167510986328, -4667.23779296875) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)  
+				local pos = Vector3.new(23.62175178527832, -77.27167510986328, -4661.197265625) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)  
+				local pos = Vector3.new(23.62175178527832, -77.27167510986328, -4661.197265625) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)  
+				local pos = Vector3.new(38.288169860839844, -77.07501983642578, -4571.92236328125) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)  
+				local pos = Vector3.new(85.00628662109375, -77.07501983642578, -4536.45458984375) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)  
+				local pos = Vector3.new(142.45065307617188, -77.02845001220703, -4525.43994140625) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)  
+				local pos = Vector3.new(169.9488067626953, -77.01850128173828, -4529.34814453125) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)  
+				local pos = Vector3.new(218.64842224121094, -77.1288070678711, -4528.17236328125) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)  
+				local pos = Vector3.new(259.5143127441406, -76.57250213623047, -4591.751953125) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+				--13
+				wait(5)  
+				local pos = Vector3.new(264.51397705078125, -77.23490142822266, -4614.34130859375) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)  
+				local pos = Vector3.new(237.00662231445312, -77.23233032226562, -4604.20556640625) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)  --selling time
+				local teleport = loadstring(game:HttpGet("https://pastebin.com/raw/CJv2dywH"))();
+				teleport(CFrame.new(2276.103271484375, 18.834056854248047, -2060.843994140625));
+
+
+				wait(5)  
+				local pos = Vector3.new(2268.53759765625, 19.568363189697266, -2160.758544921875) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+
+				wait(5)  
+				local pos = Vector3.new(2211.409423828125, 18.95522117614746, -2481.174560546875) -- your pos here
+				local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+				-- do not edit below cuz breaks script
+
+				local tween_s = game:GetService('TweenService')
+				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+				local lp = game.Players.LocalPlayer
+
+				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+					local cf = CFrame.new(pos)
+					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+					a:Play()
+				end
+
+
+				--18th 
+				if is_opened("Tomb") == "Open" or is_opened("Tomb") == "Stealing" then
+					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
+					teleport(CFrame.new(547.893798828125, 26.00324058532715, -478.97216796875))
+					wait(2)
+					local pos = Vector3.new(544.590576171875, 22.65839958190918, -546.1925048828125) -- your pos here
+					local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+
+					wait(5)
+					local pos = Vector3.new(526.6307983398438, -59.352134704589844, -380.4267578125) -- your pos here
+					local delay = 5 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+
+
+					wait(5)
+					local pos = Vector3.new(523.3025512695312, -59.8855094909668, -340.6943664550781) -- your pos here
+					local delay = 5 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+
+
+
+					wait(6)
+					local pos = Vector3.new(577.7544555664062, -72.29236602783203, -250.83175659179688) -- your pos here
+					local delay = 5 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+
+
+					wait(6)
+					local pos = Vector3.new(645.125244140625, -73.15260314941406, -223.9733123779297) -- your pos here
+					local delay = 5 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+
+					wait(6)
+					local pos = Vector3.new(801.5790405273438, -90.6996078491211, -207.18695068359375) -- your pos here
+					local delay = 5 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+
+					wait(6)
+					local pos = Vector3.new(831.6612548828125, -84.53968048095703, -203.48069763183594) -- your pos here
+					local delay = 5 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+
+					wait(5)
+					local pos = Vector3.new(939.5310668945312, -84.5396957397461, -191.5458221435547) -- your pos here
+					local delay = 5 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					wait(6)
+					local pos = Vector3.new(985.641357421875, -85.99931335449219, -187.11087036132812) -- your pos here
+					local delay = 5 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+
+					wait(6)
+					local pos = Vector3.new(997.2609252929688, -84.99931335449219, -199.09754943847656) -- your pos here
+					local delay = 5 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end   
+
+					local VirtualInputManager = game:GetService('VirtualInputManager')
+
+					VirtualInputManager:SendKeyEvent(true,"E",false,game)
+
+					wait(6)
+					local pos = Vector3.new(1006.9498901367188, -85.00090789794922, -181.87388610839844) -- your pos here
+					local delay = 5 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end   
+				
+
+					-- Check if the condition for your loop has been met
+					if indicator.Transparency == 0.8999999761581421 then
+
+						TextBox.Text = "Teleporting to jewelry store"
+						local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
+
+						teleport(CFrame.new(150, 18, 1373));
+
+
+						wait(2)
+
+						for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
+							if v.Name:match("Lasers") then
+								v:Destroy()
+							end
+						end 
+						wait(2)
+						for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
+							if v.Name:match("BarbedWire") then
+								v:Destroy()
+							end
+						end 
+						wait(2)
+						for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
+							if v.Name:match("Cameras") then
+								v:Destroy()
+							end
+						end 
+						wait(2)
+						for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
+							if v.Name:match("Camera") then
+								v:Destroy()
+							end
+						end 
+						wait(2)
+						for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
+							if v.Name:match("CameraFloors") then
+								v:Destroy()
+							end
+						end 
+
+
+
+
+						wait(1)
+						TextBox.Text = "Breaking Glass"
+						--breaking glass
+						local pos = Vector3.new(132.88629150390625, 18.563629150390625, 1345.051513671875) -- your pos here
+						local delay = 0.50 -- tp tween speed like how many seconds takes to tp
+
+						-- do not edit below cuz breaks script
+
+						local tween_s = game:GetService('TweenService')
+						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+						local lp = game.Players.LocalPlayer
+
+						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+							local cf = CFrame.new(pos)
+							local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+							a:Play()
+						end
+						wait(1)
+						TextBox.Text = "Auto Robbing"
+
+						--Teleport to inside
+						local pos = Vector3.new(129.39793395996094, 19.205472946166992, 1313.8697509765625) -- your pos here
+						local delay = 0.3 -- tp tween speed like how many seconds takes to tp
+
+						-- do not edit below cuz breaks script
+
+						local tween_s = game:GetService('TweenService')
+						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+						local lp = game.Players.LocalPlayer
+
+						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+							local cf = CFrame.new(pos)
+							local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+							a:Play()
+						end
+
+
+
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+
+						wait(0.59)
+						-- YOU NEED TO SET IT UP BELOW
+						local pos = Vector3.new(131.88807678222656, 19.605478286743164, 1313.9010009765625) -- your pos here
+						local delay = 0 -- tp tween speed like how many seconds takes to tp
+
+						-- do not edit below cuz breaks script
+
+						local tween_s = game:GetService('TweenService')
+						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+						local lp = game.Players.LocalPlayer
+
+						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+							local cf = CFrame.new(pos)
+							local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+							a:Play()
+						end
+
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						wait(0.59)
+						-- YOU NEED TO SET IT UP BELOW
+						local pos = Vector3.new(131.026611328125, 20.33732795715332, 1301.0643310546875) -- your pos here
+						local delay = 0-- tp tween speed like how many seconds takes to tp
+
+						-- do not edit below cuz breaks script
+
+						local tween_s = game:GetService('TweenService')
+						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+						local lp = game.Players.LocalPlayer
+
+						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+							local cf = CFrame.new(pos)
+							local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+							a:Play()
+						end
+
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+
+						wait(0.59)
+						-- YOU NEED TO SET IT UP BELOW
+						local pos = Vector3.new(124.64414978027344, 19.41728973388672, 1281.71337890625) -- your pos here
+						local delay = 0 -- tp tween speed like how many seconds takes to tp
+
+						-- do not edit below cuz breaks script
+
+						local tween_s = game:GetService('TweenService')
+						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+						local lp = game.Players.LocalPlayer
+
+						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+							local cf = CFrame.new(pos)
+							local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+							a:Play()
+						end
+
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+
+						wait(0.59)
+						-- YOU NEED TO SET IT UP BELOW
+						local pos = Vector3.new(117.322021484375, 19.41727638244629, 1283.056640625) -- your pos here
+						local delay = 0 -- tp tween speed like how many seconds takes to tp
+
+						-- do not edit below cuz breaks script
+
+						local tween_s = game:GetService('TweenService')
+						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+						local lp = game.Players.LocalPlayer
+
+						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+							local cf = CFrame.new(pos)
+							local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+							a:Play()
+						end
+
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+
+						wait(0.59)
+						-- YOU NEED TO SET IT UP BELOW
+						local pos = Vector3.new(106.82585144042969, 19.41726303100586, 1284.8291015625) -- your pos here
+						local delay = 0 -- tp tween speed like how many seconds takes to tp
+
+						-- do not edit below cuz breaks script
+
+						local tween_s = game:GetService('TweenService')
+						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+						local lp = game.Players.LocalPlayer
+
+						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+							local cf = CFrame.new(pos)
+							local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+							a:Play()
+						end
+
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+
+						wait(0.59)
+						-- YOU NEED TO SET IT UP BELOW
+						local pos = Vector3.new(138.13356018066406, 19.011384963989258, 1279.7869873046875) -- your pos here
+						local delay = 0.3 -- tp tween speed like how many seconds takes to tp
+
+						-- do not edit below cuz breaks script
+
+						local tween_s = game:GetService('TweenService')
+						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+						local lp = game.Players.LocalPlayer
+
+						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+							local cf = CFrame.new(pos)
+							local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+							a:Play()
+						end
+
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+
+						wait(0.59)
+						-- YOU NEED TO SET IT UP BELOW
+						local pos = Vector3.new(103.05908203125, 40.205467224121094, 1291.5516357421875) -- your pos here
+						local delay = 0 -- tp tween speed like how many seconds takes to tp
+
+						-- do not edit below cuz breaks script
+
+						local tween_s = game:GetService('TweenService')
+						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+						local lp = game.Players.LocalPlayer
+
+						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+							local cf = CFrame.new(pos)
+							local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+							a:Play()
+						end
+
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+						keypress(0x46)
+						wait(0.40)
+						keyrelease(0x46)
+
+						wait(0.59)
+						-- YOU NEED TO SET IT UP BELOW
+						local pos = Vector3.new(131.97117614746094, 37.60548400878906, 1311.0272216796875) -- your pos here
+						local delay = 0 -- tp tween speed like how many seconds takes to tp
+
+						-- do not edit below cuz breaks script
+
+						local tween_s = game:GetService('TweenService')
+						local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+						local lp = game.Players.LocalPlayer
+
+						if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+							local cf = CFrame.new(pos)
+							local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+							a:Play()
+						end
+
+
+
+
+
+
+						TextBox.Text = "Selling!!!"
+
+
+						local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
+						teleport(CFrame.new(82.78319549560547, 245.3197479248047, 1498.57080078125));
+
+						Baseplate()
+						TextBox.Text = "Bypassing by waiting 15"
+						wait(1)
+						TextBox.Text = "Bypassing by waiting 14"
+						wait(1)
+						TextBox.Text = "Bypassing by waiting 13"
+						wait(1)
+						TextBox.Text = "Bypassing by waiting 12"
+						wait(1)
+						TextBox.Text = "Bypassing by waiting 11"
+						wait(1)
+						TextBox.Text = "Bypassing by waiting 10"
+						wait(1)
+						TextBox.Text = "Bypassing by waiting 9"
+						wait(1)
+						TextBox.Text = "Bypassing by waiting 8"
+						wait(1)
+						TextBox.Text = "Bypassing by waiting 7"
+						wait(1)
+						TextBox.Text = "Bypassing by waiting 6"
+						wait(1)
+						TextBox.Text = "Bypassing by waiting 5"
+						wait(1)
+						TextBox.Text = "Bypassing by waiting 4"
+						wait(1)
+						TextBox.Text = "Bypassing by waiting 3"
+						wait(1)
+						TextBox.Text = "Bypassing by waiting 2"
+						wait(1)
+						TextBox.Text = "Bypassing by waiting 1"
+						wait(2)
+						TextBox.Text = "Selling"
+						local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
+						teleport(CFrame.new(-253.45086669921875, 23.148221969604492, 1617.010009765625));
+						BSD()
+						Baseplate()
+						TextBox.Text = ("Waiting For Stores To Open")
+
+
+
+
+
+					end
+					_G.AutoRobbing = false
+					-- Break out of the loop
+
+
+
+					indicator.Transparency = 0 
+					wait(2)
+					TextBox.Text = "Waiting for stores to open"
+		
+					
 			end
-
-
-
-			wait(6)
-			local pos = Vector3.new(577.7544555664062, -72.29236602783203, -250.83175659179688) -- your pos here
-			local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
 			end
-
-
-			wait(6)
-			local pos = Vector3.new(645.125244140625, -73.15260314941406, -223.9733123779297) -- your pos here
-			local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-
-			wait(6)
-			local pos = Vector3.new(801.5790405273438, -90.6996078491211, -207.18695068359375) -- your pos here
-			local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-
-			wait(6)
-			local pos = Vector3.new(831.6612548828125, -84.53968048095703, -203.48069763183594) -- your pos here
-			local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-
-			wait(5)
-			local pos = Vector3.new(939.5310668945312, -84.5396957397461, -191.5458221435547) -- your pos here
-			local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			wait(6)
-			local pos = Vector3.new(985.641357421875, -85.99931335449219, -187.11087036132812) -- your pos here
-			local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-
-			wait(6)
-			local pos = Vector3.new(997.2609252929688, -84.99931335449219, -199.09754943847656) -- your pos here
-			local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end   
-
-			local VirtualInputManager = game:GetService('VirtualInputManager')
-
-			VirtualInputManager:SendKeyEvent(true,"E",false,game)
-
-			wait(6)
-			local pos = Vector3.new(1006.9498901367188, -85.00090789794922, -181.87388610839844) -- your pos here
-			local delay = 5 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end   
+		end 
 		end
+	)
 
-end 
-    end
-)
-
-local sldrs = serv:Channel("Sliders")
+	local sldrs = serv:Channel("Sliders")
 
 local sldr =
-    sldrs:Slider(
-    "Slide me!",
-    0,
-    1000,
-    400,
-    function(t)
-        print(t)
-    end
-)
+	sldrs:Slider(
+		"Slide me!",
+		0,
+		1000,
+		400,
+		function(t)
+			print(t)
+		end
+	)
 
 sldrs:Button(
-    "Change to 50",
-    function()
-        sldr:Change(50)
-    end
+	"Change to 50",
+	function()
+		sldr:Change(50)
+	end
 )
 
 local drops = serv:Channel("Dropdowns")
 
 local drop =
-    drops:Dropdown(
-    "Pick me!",
-    {"Option 1", "Option 2", "Option 3", "Option 4", "Option 5"},
-    function(bool)
-        print(bool)
-    end
+	drops:Dropdown(
+		"Pick me!",
+		{"Option 1", "Option 2", "Option 3", "Option 4", "Option 5"},
+		function(bool)
+			print(bool)
+		end
+	)
+
+drops:Button(
+	"Clear",
+	function()
+		drop:Clear()
+	end
 )
 
 drops:Button(
-    "Clear",
-    function()
-        drop:Clear()
-    end
-)
-
-drops:Button(
-    "Add option",
-    function()
-        drop:Add("Option")
-    end
+	"Add option",
+	function()
+		drop:Add("Option")
+	end
 )
 
 local clrs = serv:Channel("Colorpickers")
 
 clrs:Colorpicker(
-    "ESP Color",
-    Color3.fromRGB(255, 1, 1),
-    function(t)
-        print(t)
-    end
+	"ESP Color",
+	Color3.fromRGB(255, 1, 1),
+	function(t)
+		print(t)
+	end
 )
 
 local textbs = serv:Channel("Textboxes")
 
 textbs:Textbox(
-    "Gun power",
-    "Type here!",
-    true,
-    function(t)
-        print(t)
-    end
+	"Gun power",
+	"Type here!",
+	true,
+	function(t)
+		print(t)
+	end
 )
 
 local lbls = serv:Channel("Labels")
@@ -1220,13 +1610,34 @@ lbls:Label("This is just a label.")
 local bnds = serv:Channel("Binds")
 
 bnds:Bind(
-    "Kill bind",
-    Enum.KeyCode.RightShift,
-    function()
-        print("Killed everyone!")
-    end
+	"Kill bind",
+	Enum.KeyCode.RightShift,
+	function()
+		print("Killed everyone!")
+	end
 )
 
 serv:Channel("by dawid#7205")
 
 win:Server("Main", "http://www.roblox.com/asset/?id=6031075938")
+
+function antiafk()
+	local vu = game:GetService("VirtualUser")
+	game:GetService("Players").LocalPlayer.Idled:connect(function()
+		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		wait(1)
+		vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	end)
+
+end
+
+function Baseplate()
+	local baseplate = Instance.new("Part")
+	baseplate.Parent = workspace
+	baseplate.Size = Vector3.new(100,5,100) -- change size
+	baseplate.Anchored = true
+	baseplate.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,650,0) -- higher number for it to spawn higher
+	wait(1)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = baseplate.CFrame + Vector3.new(0,10,0)
+
+end
