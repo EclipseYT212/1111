@@ -1,4 +1,4 @@
-s--[[
+--[[
 	ui-engine-v2
 	version 1.3a
 	by Singularity (V3rm @ King Singularity) (Discord @ Singularity#5490)
@@ -2120,13 +2120,13 @@ features:AddSwitch("Autofarm",function(chickenchickench)
 			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 
 			teleport(CFrame.new(150, 18, 1373));
-			elseif JewlStatus == "Closed" then
+		elseif JewlStatus == "Closed" then
 			print(is_opened("Jewelrys"))
-			
+
 		end 
-wait()
-		end
-	end)
+		wait()
+	end
+end)
 
 
 --waypoints
