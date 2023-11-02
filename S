@@ -45,6 +45,7 @@ MainFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 MainFrame.BorderColor3 = Color3.fromRGB(85, 255, 255)
 MainFrame.Position = UDim2.new(-0.00106321287, 0, 0.980499268, 0)
 MainFrame.Size = UDim2.new(0, 249, 0, 98)
+MainFrame.Draggable = true 
 
 TextBox.Parent = MainFrame
 TextBox.Active = false
