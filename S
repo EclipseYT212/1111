@@ -107,14 +107,14 @@ Start.MouseButton1Click:Connect(function()
 			((State.Value == 1 and 'Open') or (State.Value == 2 and 'stealing') or (State.Value == 3 and 'Closed'))
 	end
 
-if is_opened("Tomb") == "Open" or is_opened("Tomb") == "stealing" then
+if is_opened("Tomb") == "Tomb : Open" or is_opened("Tomb") == "Tomb : stealing" then
 		print(is_opened("Tomb"))
 	end
-	if is_opened("Casino") == "Open" or is_opened("Casino") == "Closed" then
+	if is_opened("Casino") == "Casino : Open" or is_opened("Casino") == "Casino : Closed" then
 		print(is_opened("Casino"))
 	end
 
-	if is_opened("Jewelrys") == "Open" or is_opened("Jewelrys") == "Closed" then
+	if is_opened("Jewelrys") == "JewelryStore : Open" or is_opened("Jewelrys") == "JewelryStore : Closed" then
 		print(is_opened("Jewelrys"))
 		-- Check if the condition for your loop has been met
 		if indicator.Transparency == 0.8999999761581421 then
