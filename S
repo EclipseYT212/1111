@@ -1,157 +1,71 @@
--- Gui to Lua
--- Version: 3.2
+local DiscordLib =
+    loadstring(game:HttpGet "https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/discord")()
 
--- Instances:
+local win = DiscordLib:Window("discord library")
 
-local ExplosiveMenu = Instance.new("ScreenGui")
-local TopFrame = Instance.new("Frame")
-local MainFrame = Instance.new("Frame")
-local TextBox = Instance.new("TextBox")
-local Start = Instance.new("ImageButton")
-local Stop = Instance.new("ImageButton")
-local store = Instance.new("ImageButton")
-local UICorner = Instance.new("UICorner")
-local UICorner_2 = Instance.new("UICorner")
-local TextLabel = Instance.new("TextLabel")
-local StoresTab = Instance.new("Frame")
-local JewelryYes = Instance.new("ImageButton")
-local JewelryNo = Instance.new("ImageButton")
-local StoresLabel = Instance.new("TextLabel")
-local JewelryLabel = Instance.new("TextLabel")
-local BankLabel = Instance.new("TextLabel")
-local BankNo = Instance.new("ImageButton")
-local Bankyes = Instance.new("ImageButton")
-local Bankyes_2 = Instance.new("ImageButton")
-local BankNo_2 = Instance.new("ImageButton")
-local BankLabel_2 = Instance.new("TextLabel")
-local UICorner_3 = Instance.new("UICorner")
-local Museum = game.Workspace.Museum
-local bank = game:GetService("Workspace").Banks.Bank.Extra.Sign.Decal
---local CargoShip = game:GetService("Worspace").CargoShip
-local cargotrain =  game:GetService("Workspace").Trains
-local RoofHolePart = Museum:FindFirstChild("Roof")
-local RoofHoleOpen = false
-local ind = workspace.Jewelrys:FindFirstChild('Sign', true)
-local indicator = ind.Decal
-local RunService = game:GetService("RunService")
-local loopActive = false
---Properties:
+local serv = win:Server("Preview", "")
 
-ExplosiveMenu.Name = "Explosive Menu"
-ExplosiveMenu.Parent = game.CoreGui
+local btns = serv:Channel("Buttons")
 
-TopFrame.Name = "TopFrame"
-TopFrame.Parent = ExplosiveMenu
-TopFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-TopFrame.BorderColor3 = Color3.fromRGB(85, 255, 255)
-TopFrame.Position = UDim2.new(0.211000979, 0, 0.315938771, 0)
-TopFrame.Size = UDim2.new(0, 249, 0, 26)
+btns:Button(
+    "Kill all",
+    function()
+        DiscordLib:Notification("Notification", "Killed everyone!", "Okay!")
+    end
+)
 
-MainFrame.Name = "MainFrame"
-MainFrame.Parent = TopFrame
-MainFrame.Active = true
-MainFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-MainFrame.BorderColor3 = Color3.fromRGB(85, 255, 255)
-MainFrame.Position = UDim2.new(-0.00106321287, 0, 0.980499268, 0)
-MainFrame.Size = UDim2.new(0, 249, 0, 98)
-MainFrame.Draggable = true 
+btns:Seperator()
 
-TextBox.Parent = MainFrame
-TextBox.Active = false
-TextBox.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-TextBox.BackgroundTransparency = 1.000
-TextBox.BorderColor3 = Color3.fromRGB(85, 255, 255)
-TextBox.BorderSizePixel = 0
-TextBox.Position = UDim2.new(0.0963855386, 0, 0.163265303, 0)
-TextBox.Size = UDim2.new(0, 200, 0, 50)
-TextBox.ClearTextOnFocus = false
-TextBox.Font = Enum.Font.Unknown
-TextBox.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
-TextBox.Text = "Welcome!"
-TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextBox.TextSize = 14.000
+btns:Button(
+    "Get max level",
+    function()
+        DiscordLib:Notification("Notification", "Max level!", "Okay!")
+    end
+)
 
-Start.Name = "Start"
-Start.Parent = MainFrame
-Start.BackgroundTransparency = 1.000
-Start.LayoutOrder = 7
-Start.Position = UDim2.new(-0.00200803205, 0, -0.255102038, 0)
-Start.Size = UDim2.new(0, 28, 0, 25)
-Start.ZIndex = 2
-Start.Image = "rbxassetid://3926305904"
-Start.ImageRectOffset = Vector2.new(844, 804)
-Start.ImageRectSize = Vector2.new(36, 36)
-Start.MouseButton1Click:Connect(function()
-	Baseplate()
-TextBox.Text = "Waiting for stores to open"
-while wait(3) do 
-		
-		
-		if CheckPlane() then 
-			print("\nPlane Found")
+local tgls = serv:Channel("Toggles")
 
+tgls:Toggle(
+    "Auto-Farm",
+    false,
+    function(bool)
+      while wait(3) do 
 
-			TextBox.Text = ("Going to cargo plane")
-
-			local crate = game:GetService("Workspace").Plane.Crates.Crate1:FindFirstChild("1").Position
-			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
-
-			teleport(CFrame.new(crate));
-
-
-
-
-
-
-			wait(2)
-			TextBox.Text = ("Going inside plane")
-			local pos = Vector3.new(5-1169.8582763671875, 44.35041809082031, 2905.92236328125) -- your pos here
-			local delay = 1 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-
-
-
-			end
-
-			TextBox.Text = ('Opening crates')
-			wait(15)
-			for i,v in pairs(require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs) do
-				if v.Name == "Inspect Crate" then
-					v:Callback(v, true)
-				end
-			end
-
-			local VirtualInputManager = game:GetService('VirtualInputManager')
-
-			VirtualInputManager:SendKeyEvent(true,"E",false,game)
-
-			wait(30)
-
-
-			Baseplate()
-			TextBox.Text = ("Bypassing by waiting")
-			wait(15)
-			TextBox.Text =("Selling")
-			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
-
-			teleport(CFrame.new(-338.4594421386719, 21.26369285583496, 2055.239990234375));
-			Baseplate()
-			TextBox.Text = "Waiting For Drops or plane"
-			_G.AutoRobbing = false
-			
+local Robberys = {
+	['1'] = 'bank',
+	['2'] = 'bank2',
+	['3'] = 'Jewelrys',
+	['4'] = 'Museum',
+	['5'] = 'PowerPlant',
+	['6'] = 'PassengerTrain',
+	['7'] = 'CargoTrain',
+	['8'] = 'CargoShip',
+	['9'] = 'CargoPlane',
+	['10'] = 'GasStations',
+	['11'] = 'DonutShop',
+	['12'] = 'MoneyTruck',
+	['13'] = 'HomeVault',
+	['14'] = 'Tomb',
+	['15'] = 'Casino',
+	['16'] = 'Mansion'
+}
+function get_rob(nome)
+	for i, v in pairs(Robberys) do
+		if v:lower() == nome:lower() then
+			return i
 		end
-		if is_opened("Tomb") == "Open" or is_opened("Tomb") == "Stealing" then
+	end
+end
+
+function is_opened(rob)
+	local roubo = get_rob(rob)
+
+	local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(roubo)
+
+	return (tostring(State) == 'nil' and 'Closed') or
+		((State.Value == 1 and 'Open') or (State.Value == 2 and 'stealing') or (State.Value == 3 and 'Closed'))
+end
+if is_opened("Tomb") == "Open" or is_opened("Tomb") == "Stealing" then
 
 			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 			teleport(CFrame.new(547.893798828125, 26.00324058532715, -478.97216796875))
@@ -349,733 +263,91 @@ while wait(3) do
 				a:Play()
 			end   
 		end
-		if is_opened("Casino") == "Chips : Open" or is_opened("Casino") == "Chips : Closed" then
-			
 
-
-		else
-			if is_opened("bank") == "Open" or is_opened("bank") == "Closed" then
-				
-			else
-
-
-				-- Check if the condition for your loop has been met
-				if indicator.Transparency == 0.8999999761581421 then
-
-					TextBox.Text = "Teleporting to jewelry store"
-					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
-
-					teleport(CFrame.new(150, 18, 1373));
-
-
-					wait(2)
-
-					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
-						if v.Name:match("Lasers") then
-							v:Destroy()
-						end
-					end 
-					wait(2)
-					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
-						if v.Name:match("BarbedWire") then
-							v:Destroy()
-						end
-					end 
-					wait(2)
-					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
-						if v.Name:match("Cameras") then
-							v:Destroy()
-						end
-					end 
-					wait(2)
-					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
-						if v.Name:match("Camera") then
-							v:Destroy()
-						end
-					end 
-					wait(2)
-					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
-						if v.Name:match("CameraFloors") then
-							v:Destroy()
-						end
-					end 
-
-
-
-
-					wait(1)
-					TextBox.Text = "Breaking Glass"
-					--breaking glass
-					local pos = Vector3.new(132.88629150390625, 18.563629150390625, 1345.051513671875) -- your pos here
-					local delay = 0.50 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-					wait(1)
-					TextBox.Text = "Auto Robbing"
-
-					--Teleport to inside
-					local pos = Vector3.new(129.39793395996094, 19.205472946166992, 1313.8697509765625) -- your pos here
-					local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-
-
-
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-
-					wait(0.59)
-					-- YOU NEED TO SET IT UP BELOW
-					local pos = Vector3.new(131.88807678222656, 19.605478286743164, 1313.9010009765625) -- your pos here
-					local delay = 0 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					wait(0.59)
-					-- YOU NEED TO SET IT UP BELOW
-					local pos = Vector3.new(131.026611328125, 20.33732795715332, 1301.0643310546875) -- your pos here
-					local delay = 0-- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-
-					wait(0.59)
-					-- YOU NEED TO SET IT UP BELOW
-					local pos = Vector3.new(124.64414978027344, 19.41728973388672, 1281.71337890625) -- your pos here
-					local delay = 0 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-
-					wait(0.59)
-					-- YOU NEED TO SET IT UP BELOW
-					local pos = Vector3.new(117.322021484375, 19.41727638244629, 1283.056640625) -- your pos here
-					local delay = 0 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-
-					wait(0.59)
-					-- YOU NEED TO SET IT UP BELOW
-					local pos = Vector3.new(106.82585144042969, 19.41726303100586, 1284.8291015625) -- your pos here
-					local delay = 0 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-
-					wait(0.59)
-					-- YOU NEED TO SET IT UP BELOW
-					local pos = Vector3.new(138.13356018066406, 19.011384963989258, 1279.7869873046875) -- your pos here
-					local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-
-					wait(0.59)
-					-- YOU NEED TO SET IT UP BELOW
-					local pos = Vector3.new(103.05908203125, 40.205467224121094, 1291.5516357421875) -- your pos here
-					local delay = 0 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-					keypress(0x46)
-					wait(0.40)
-					keyrelease(0x46)
-
-					wait(0.59)
-					-- YOU NEED TO SET IT UP BELOW
-					local pos = Vector3.new(131.97117614746094, 37.60548400878906, 1311.0272216796875) -- your pos here
-					local delay = 0 -- tp tween speed like how many seconds takes to tp
-
-					-- do not edit below cuz breaks script
-
-					local tween_s = game:GetService('TweenService')
-					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-					local lp = game.Players.LocalPlayer
-
-					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-						local cf = CFrame.new(pos)
-						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-						a:Play()
-					end
-
-
-
-
-
-
-					TextBox.Text = "Selling!!!"
-
-
-					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
-					teleport(CFrame.new(82.78319549560547, 245.3197479248047, 1498.57080078125));
-
-					Baseplate()
-					TextBox.Text = "Bypassing by waiting 15"
-					wait(1)
-					TextBox.Text = "Bypassing by waiting 14"
-					wait(1)
-					TextBox.Text = "Bypassing by waiting 13"
-					wait(1)
-					TextBox.Text = "Bypassing by waiting 12"
-					wait(1)
-					TextBox.Text = "Bypassing by waiting 11"
-					wait(1)
-					TextBox.Text = "Bypassing by waiting 10"
-					wait(1)
-					TextBox.Text = "Bypassing by waiting 9"
-					wait(1)
-					TextBox.Text = "Bypassing by waiting 8"
-					wait(1)
-					TextBox.Text = "Bypassing by waiting 7"
-					wait(1)
-					TextBox.Text = "Bypassing by waiting 6"
-					wait(1)
-					TextBox.Text = "Bypassing by waiting 5"
-					wait(1)
-					TextBox.Text = "Bypassing by waiting 4"
-					wait(1)
-					TextBox.Text = "Bypassing by waiting 3"
-					wait(1)
-					TextBox.Text = "Bypassing by waiting 2"
-					wait(1)
-					TextBox.Text = "Bypassing by waiting 1"
-					wait(2)
-					TextBox.Text = "Selling"
-					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
-					teleport(CFrame.new(-253.45086669921875, 23.148221969604492, 1617.010009765625));
-					BSD()
-					Baseplate()
-					TextBox.Text = ("Waiting For Stores To Open")
-
-
-
-
-
-
-				end
-			end	
-		end
-		end
-	end)
-Stop.Name = "Stop"
-Stop.Parent = MainFrame
-Stop.BackgroundTransparency = 1.000
-Stop.LayoutOrder = 5
-Stop.Position = UDim2.new(0.897590339, 0, -0.265306115, 0)
-Stop.Size = UDim2.new(0, 25, 0, 25)
-Stop.ZIndex = 2
-Stop.Image = "rbxassetid://3926305904"
-Stop.ImageRectOffset = Vector2.new(4, 4)
-Stop.ImageRectSize = Vector2.new(24, 24)
-
-store.Name = "store"
-store.Parent = MainFrame
-store.BackgroundTransparency = 1.000
-store.Position = UDim2.new(0.447791159, 0, 0.683673441, 0)
-store.Size = UDim2.new(0, 25, 0, 25)
-store.ZIndex = 2
-store.Image = "rbxassetid://3926305904"
-store.ImageRectOffset = Vector2.new(564, 724)
-store.ImageRectSize = Vector2.new(36, 36)
-
-UICorner.CornerRadius = UDim.new(0, 5)
-UICorner.Parent = store
-
-UICorner_2.CornerRadius = UDim.new(0, 15)
-UICorner_2.Parent = MainFrame
-
-TextLabel.Parent = TopFrame
-TextLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.BorderSizePixel = 0
-TextLabel.Size = UDim2.new(0, 249, 0, 24)
-TextLabel.Font = Enum.Font.SourceSansBold
-TextLabel.Text = "Explosive Menu Mobile Farmer"
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextSize = 15.000
-TextLabel.TextWrapped = true
-
-StoresTab.Name = "StoresTab"
-StoresTab.Parent = TopFrame
-StoresTab.Active = true
-StoresTab.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-StoresTab.BorderColor3 = Color3.fromRGB(85, 255, 255)
-StoresTab.Position = UDim2.new(1.85837471, 0, 0.923076928, 0)
-StoresTab.Size = UDim2.new(0, -164, 0, 196)
-StoresTab.Visible = false
-
-JewelryYes.Name = "Jewelry Yes"
-JewelryYes.Parent = StoresTab
-JewelryYes.BackgroundTransparency = 1.000
-JewelryYes.Position = UDim2.new(0.397066265, 0, 0.149026364, 0)
-JewelryYes.Size = UDim2.new(0, 25, 0, 25)
-JewelryYes.Visible = false
-JewelryYes.ZIndex = 2
-JewelryYes.Image = "rbxassetid://3926305904"
-JewelryYes.ImageRectOffset = Vector2.new(312, 4)
-JewelryYes.ImageRectSize = Vector2.new(24, 24)
-
-JewelryNo.Name = "JewelryNo"
-JewelryNo.Parent = StoresTab
-JewelryNo.BackgroundTransparency = 1.000
-JewelryNo.LayoutOrder = 3
-JewelryNo.Position = UDim2.new(0.397018343, 0, 0.14929916, 0)
-JewelryNo.Size = UDim2.new(0, 25, 0, 25)
-JewelryNo.ZIndex = 2
-JewelryNo.Image = "rbxassetid://3926305904"
-JewelryNo.ImageRectOffset = Vector2.new(924, 724)
-JewelryNo.ImageRectSize = Vector2.new(36, 36)
-
-StoresLabel.Name = "StoresLabel"
-StoresLabel.Parent = StoresTab
-StoresLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-StoresLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-StoresLabel.BorderSizePixel = 0
-StoresLabel.Position = UDim2.new(-0, 0, -0.135403842, 0)
-StoresLabel.Size = UDim2.new(0, 163, 0, 26)
-StoresLabel.Font = Enum.Font.SourceSansBold
-StoresLabel.Text = "Stores"
-StoresLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-StoresLabel.TextScaled = true
-StoresLabel.TextSize = 14.000
-StoresLabel.TextWrapped = true
-
-JewelryLabel.Name = "JewelryLabel"
-JewelryLabel.Parent = StoresTab
-JewelryLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-JewelryLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-JewelryLabel.BorderSizePixel = 0
-JewelryLabel.Position = UDim2.new(-0, 0, 0.025181625, 0)
-JewelryLabel.Size = UDim2.new(0, 160, 0, 25)
-JewelryLabel.Font = Enum.Font.SourceSansBold
-JewelryLabel.Text = "Jewelry"
-JewelryLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-JewelryLabel.TextScaled = true
-JewelryLabel.TextSize = 14.000
-JewelryLabel.TextWrapped = true
-
-BankLabel.Name = "BankLabel"
-BankLabel.Parent = StoresTab
-BankLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-BankLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-BankLabel.BorderSizePixel = 0
-BankLabel.Position = UDim2.new(-0, 0, 0.31089589, 0)
-BankLabel.Size = UDim2.new(0, 160, 0, 25)
-BankLabel.Font = Enum.Font.SourceSansBold
-BankLabel.Text = "Bank"
-BankLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-BankLabel.TextScaled = true
-BankLabel.TextSize = 14.000
-BankLabel.TextWrapped = true
-
-BankNo.Name = "BankNo"
-BankNo.Parent = StoresTab
-BankNo.BackgroundTransparency = 1.000
-BankNo.LayoutOrder = 3
-BankNo.Position = UDim2.new(0.4031533, 0, 0.47582978, 0)
-BankNo.Size = UDim2.new(0, 25, 0, 25)
-BankNo.ZIndex = 2
-BankNo.Image = "rbxassetid://3926305904"
-BankNo.ImageRectOffset = Vector2.new(924, 724)
-BankNo.ImageRectSize = Vector2.new(36, 36)
-
-Bankyes.Name = "Bankyes"
-Bankyes.Parent = StoresTab
-Bankyes.BackgroundTransparency = 1.000
-Bankyes.Position = UDim2.new(0.403201252, 0, 0.47555697, 0)
-Bankyes.Size = UDim2.new(0, 25, 0, 25)
-Bankyes.Visible = false
-Bankyes.ZIndex = 2
-Bankyes.Image = "rbxassetid://3926305904"
-Bankyes.ImageRectOffset = Vector2.new(312, 4)
-Bankyes.ImageRectSize = Vector2.new(24, 24)
-
-Bankyes_2.Name = "Bankyes"
-Bankyes_2.Parent = StoresTab
-Bankyes_2.BackgroundTransparency = 1.000
-Bankyes_2.Position = UDim2.new(0.391006112, 0, 0.771475315, 0)
-Bankyes_2.Size = UDim2.new(0, 25, 0, 25)
-Bankyes_2.Visible = false
-Bankyes_2.ZIndex = 2
-Bankyes_2.Image = "rbxassetid://3926305904"
-Bankyes_2.ImageRectOffset = Vector2.new(312, 4)
-Bankyes_2.ImageRectSize = Vector2.new(24, 24)
-
-BankNo_2.Name = "BankNo"
-BankNo_2.Parent = StoresTab
-BankNo_2.BackgroundTransparency = 1.000
-BankNo_2.LayoutOrder = 3
-BankNo_2.Position = UDim2.new(0.390958101, 0, 0.771748126, 0)
-BankNo_2.Size = UDim2.new(0, 25, 0, 25)
-BankNo_2.ZIndex = 2
-BankNo_2.Image = "rbxassetid://3926305904"
-BankNo_2.ImageRectOffset = Vector2.new(924, 724)
-BankNo_2.ImageRectSize = Vector2.new(36, 36)
-
-BankLabel_2.Name = "BankLabel"
-BankLabel_2.Parent = StoresTab
-BankLabel_2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-BankLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-BankLabel_2.BorderSizePixel = 0
-BankLabel_2.Position = UDim2.new(0.024390243, 0, 0.647630632, 0)
-BankLabel_2.Size = UDim2.new(0, 160, 0, 25)
-BankLabel_2.Font = Enum.Font.SourceSansBold
-BankLabel_2.Text = "Bank"
-BankLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-BankLabel_2.TextScaled = true
-BankLabel_2.TextSize = 14.000
-BankLabel_2.TextWrapped = true
-
-UICorner_3.CornerRadius = UDim.new(0, 50)
-UICorner_3.Parent = TopFrame
-
-
-
-function antiafk()
-	local vu = game:GetService("VirtualUser")
-	game:GetService("Players").LocalPlayer.Idled:connect(function()
-		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-		wait(1)
-		vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-	end)
-
-end
-
-function Baseplate()
-	local baseplate = Instance.new("Part")
-	baseplate.Parent = workspace
-	baseplate.Size = Vector3.new(100,5,100) -- change size
-	baseplate.Anchored = true
-	baseplate.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,650,0) -- higher number for it to spawn higher
-	wait(1)
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = baseplate.CFrame + Vector3.new(0,10,0)
-
-end
-
-local Robberys = {
-	['1'] = 'bank',
-	['2'] = 'bank2',
-	['3'] = 'Jewelrys',
-	['4'] = 'Museum',
-	['5'] = 'PowerPlant',
-	['6'] = 'Passenger Train',
-	['7'] = 'Cargo Train',
-	['8'] = 'CargoShip',
-	['9'] = 'CargoPlane',
-	['10'] = 'GasStations',
-	['11'] = 'DonutShop',
-	['12'] = 'MoneyTruck',
-	['13'] = 'HomeVault',
-	['14'] = 'Tomb',
-	['15'] = 'Casino',
-	['16'] = 'Mansion'
-}
-function get_rob(nome)
-	for i, v in pairs(Robberys) do
-		if v:lower() == nome:lower() then
-			return i
-		end
-	end
-end
-
-function is_opened(rob)
-	local roubo = get_rob(rob)
-
-	local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(roubo)
-
-	return (tostring(State) == 'nil' and 'Closed') or
-		((State.Value == 1 and 'Open') or (State.Value == 2 and 'stealing') or (State.Value == 3 and 'Closed'))
-end
-
-
-function CheckPlane()
-	for i,v in pairs(workspace:GetChildren()) do
-		if v.Name == "Plane" and v.Root then
-			if v.Crates.Crate1["1"].Transparency == 0 then
-				return v.Crates:GetChildren()[math.random(1,table.maxn(v.Crates:GetChildren()))]
-			else
-				return false
-			end
-		end
-	end
-end
+end 
+    end
+)
+
+local sldrs = serv:Channel("Sliders")
+
+local sldr =
+    sldrs:Slider(
+    "Slide me!",
+    0,
+    1000,
+    400,
+    function(t)
+        print(t)
+    end
+)
+
+sldrs:Button(
+    "Change to 50",
+    function()
+        sldr:Change(50)
+    end
+)
+
+local drops = serv:Channel("Dropdowns")
+
+local drop =
+    drops:Dropdown(
+    "Pick me!",
+    {"Option 1", "Option 2", "Option 3", "Option 4", "Option 5"},
+    function(bool)
+        print(bool)
+    end
+)
+
+drops:Button(
+    "Clear",
+    function()
+        drop:Clear()
+    end
+)
+
+drops:Button(
+    "Add option",
+    function()
+        drop:Add("Option")
+    end
+)
+
+local clrs = serv:Channel("Colorpickers")
+
+clrs:Colorpicker(
+    "ESP Color",
+    Color3.fromRGB(255, 1, 1),
+    function(t)
+        print(t)
+    end
+)
+
+local textbs = serv:Channel("Textboxes")
+
+textbs:Textbox(
+    "Gun power",
+    "Type here!",
+    true,
+    function(t)
+        print(t)
+    end
+)
+
+local lbls = serv:Channel("Labels")
+
+lbls:Label("This is just a label.")
+
+local bnds = serv:Channel("Binds")
+
+bnds:Bind(
+    "Kill bind",
+    Enum.KeyCode.RightShift,
+    function()
+        print("Killed everyone!")
+    end
+)
+
+serv:Channel("by dawid#7205")
+
+win:Server("Main", "http://www.roblox.com/asset/?id=6031075938")
