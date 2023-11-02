@@ -119,6 +119,7 @@ Start.MouseButton1Click:Connect(function()
 
 	if is_opened("Tomb") == "Open" or is_opened("Tomb") == "Closed" then
 		print(is_opened("Tomb"))
+wait(2)
 local teleport = loadstring(game:HttpGet("https://pastebin.com/raw/CJv2dywH"))();
 		teleport(CFrame.new(547.893798828125, 26.00324058532715, -478.97216796875))
 		wait(2)
