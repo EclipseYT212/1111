@@ -2066,11 +2066,10 @@ features:AddSwitch("Infinite Jump",function(bool)
 	end
 end)
 
-features:AddSwitch("Autofarm",function(chickenchickench)
+features:AddSwitch("Autofarm Wins",function(chickenchickench)
 	coolbrothatsnice = chickenchickench
 
 	while coolbrothatsnice == true do
-
 		local Robberys = {
 			['1'] = 'Bank',
 			['2'] = 'Jewelry Store',
@@ -2112,19 +2111,13 @@ features:AddSwitch("Autofarm",function(chickenchickench)
 			end
 		end
 
-		local JewlStatus = is_opened("Jewelrys")
+		local JewlStatus = is_opened("Jewelry Store")
 		if JewlStatus == "open" or JewlStatus == "stealing" then
-			print(is_opened("Jewelrys"))
+			print(is_opened("Jewelry Store"))
 			print("Going to Jewl Store")
 
-			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
-
-			teleport(CFrame.new(150, 18, 1373));
-		elseif JewlStatus == "Closed" then
-			print(is_opened("Jewelrys"))
-
-		end 
-		wait()
+			wait()
+		end
 	end
 end)
 
