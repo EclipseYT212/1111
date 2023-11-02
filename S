@@ -122,9 +122,7 @@ Start.MouseButton1Click:Connect(function()
 	end
 
 
-	if is_opened("Casino") == "Open" or is_opened("Casino") == "Closed" then
-		print(is_opened("Casino"))
-	end 
+	
 
 
 	if is_opened("Jewelrys") == "Open" or is_opened("Jewelrys") == "Closed" then
