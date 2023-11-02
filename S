@@ -25,7 +25,16 @@ local Bankyes_2 = Instance.new("ImageButton")
 local BankNo_2 = Instance.new("ImageButton")
 local BankLabel_2 = Instance.new("TextLabel")
 local UICorner_3 = Instance.new("UICorner")
-
+local Museum = game.Workspace.Museum
+local bank = game:GetService("Workspace").Banks.Bank.Extra.Sign.Decal
+--local CargoShip = game:GetService("Worspace").CargoShip
+local cargotrain =  game:GetService("Workspace").Trains
+local RoofHolePart = Museum:FindFirstChild("Roof")
+local RoofHoleOpen = false
+local ind = workspace.Jewelrys:FindFirstChild('Sign', true)
+local indicator = ind.Decal
+local RunService = game:GetService("RunService")
+local loopActive = false
 --Properties:
 
 ExplosiveMenu.Name = "Explosive Menu"
@@ -107,7 +116,7 @@ Start.MouseButton1Click:Connect(function()
 			((State.Value == 1 and 'Open') or (State.Value == 2 and 'stealing') or (State.Value == 3 and 'Closed'))
 	end
 
-if is_opened("Tomb") == "Tomb : Open" or is_opened("Tomb") == "Tomb : stealing" then
+	if is_opened("Tomb") == "Tomb : Open" or is_opened("Tomb") == "Tomb : stealing" then
 		print(is_opened("Tomb"))
 	end
 	if is_opened("Casino") == "Casino : Open" or is_opened("Casino") == "Casino : Closed" then
@@ -592,8 +601,8 @@ if is_opened("Tomb") == "Tomb : Open" or is_opened("Tomb") == "Tomb : stealing" 
 		if is_opened("bank") == "Open" or is_opened("bank") == "Closed" then
 			print(is_opened("bank"))
 		end
-end
-	end)
+	end
+end)
 Stop.Name = "Stop"
 Stop.Parent = MainFrame
 Stop.BackgroundTransparency = 1.000
@@ -765,3 +774,27 @@ BankLabel_2.TextWrapped = true
 
 UICorner_3.CornerRadius = UDim.new(0, 50)
 UICorner_3.Parent = TopFrame
+
+
+
+function antiafk()
+	local vu = game:GetService("VirtualUser")
+	game:GetService("Players").LocalPlayer.Idled:connect(function()
+		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		wait(1)
+		vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	end)
+
+end
+
+function Baseplate()
+	local baseplate = Instance.new("Part")
+	baseplate.Parent = workspace
+	baseplate.Size = Vector3.new(100,5,100) -- change size
+	baseplate.Anchored = true
+	baseplate.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,650,0) -- higher number for it to spawn higher
+	wait(1)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = baseplate.CFrame + Vector3.new(0,10,0)
+
+end
+
