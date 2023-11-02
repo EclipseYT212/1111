@@ -107,7 +107,9 @@ Start.MouseButton1Click:Connect(function()
 			((State.Value == 1 and 'Open') or (State.Value == 2 and 'stealing') or (State.Value == 3 and 'Closed'))
 	end
 
-
+if is_opened("Tomb") == "Open" or is_opened("Tomb") == "stealing" then
+		print(is_opened("Tomb"))
+	end
 	if is_opened("Casino") == "Open" or is_opened("Casino") == "Closed" then
 		print(is_opened("Casino"))
 	end
