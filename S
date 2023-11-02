@@ -110,6 +110,14 @@ Start.MouseButton1Click:Connect(function()
 	if is_opened("Casino") == "Open" or is_opened("Casino") == "Closed" then
 		print(is_opened("Casino"))
 		end
+
+if is_opened("Jewelrys") == "Open" or is_opened("Jewelrys") == "Closed" then
+		print(is_opened("Jewelrys"))
+		end
+if is_opened("bank") == "Open" or is_opened("bank") == "Closed" then
+		print(is_opened("bank"))
+		end
+
 end)
 Stop.Name = "Stop"
 Stop.Parent = MainFrame
