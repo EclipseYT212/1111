@@ -2121,9 +2121,10 @@ features:AddSwitch("Autofarm",function(chickenchickench)
 
 			teleport(CFrame.new(150, 18, 1373));
 			elseif JewlStatus == "Closed" then
-print(is_opened("Jewelrys"))
-			wait()
+			print(is_opened("Jewelrys"))
+			
 		end 
+wait()
 		end
 	end)
 
