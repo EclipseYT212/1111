@@ -2123,20 +2123,12 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 	local CasinoStatus = is_opened("Casino")
 	if CasinoStatus == "open" then
 		if _G.AutoRobbing == true then 
-			game.StarterGui:SetCore("SendNotification", {
-				Title = "Teleporting to the Casino"; -- the title 
-				Text = "Explosive Menu"; -- what the text says 
-				Duration = 10; -- how long the notification should in secounds
-			})
+		
 
 			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/RobloxReleases/main/Scripts/Jailbreak/Teleporation.lua"))();
 			teleport(CFrame.new(-249.948486328125, 23.976511001586914, -4661.296875))
 			wait(1)
-			game.StarterGui:SetCore("SendNotification", {
-				Title = "Robbing...."; -- the title 
-				Text = "Explosive Menu"; -- what the text says 
-				Duration = 10; -- how long the notification should in secounds
-			})
+		
 
 			wait(1)
 			local pos = Vector3.new(-185.13201904296875, 19.877317428588867, -4682.09521484375) -- your pos here
