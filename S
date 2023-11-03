@@ -2121,7 +2121,7 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 	end
 	
 	local JewlStatus = is_opened("Jewelrys")
-	if JewlStatus == "open" or JewlStatus == "closed" then
+	if JewlStatus == "open" then
 		if _G.AutoRobbing == true then 
 			print(is_opened("Jewelrys"))
 			wait(1)
