@@ -2081,7 +2081,7 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 	_G.AutoRobbing = chickenchickench
 	local Robberys = {
 		['1'] = 'Bank',
-		['2'] = 'JewelryStore',
+		['2'] = 'Jewelrys',
 		['3'] = 'Museum',
 		['4'] = 'PowerPlant',
 		['5'] = 'PassengerTrain',
@@ -2122,11 +2122,11 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 
 
 
-	local JewlStatus = is_opened("Jewelry Store")
+	local JewlStatus = is_opened("Jewelrys")
 	if JewlStatus == "open" then
 
 		if _G.AutoRobbing == true then 
-			print(is_opened("Jewelry Store"))
+			print(is_opened("Jewelrys"))
 			wait(1)
 			print("Going to JewelryStore...")
 			wait(1)
