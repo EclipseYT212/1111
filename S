@@ -2081,7 +2081,7 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 	_G.AutoRobbing = chickenchickench
 	local Robberys = {
 		['1'] = 'Bank',
-		['2'] = 'Jewelry Store',
+		['2'] = 'JewelryStore',
 		['3'] = 'Museum',
 		['4'] = 'PowerPlant',
 		['5'] = 'PassengerTrain',
