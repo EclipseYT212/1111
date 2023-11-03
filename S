@@ -2572,7 +2572,7 @@ print("Selling...")
 	end
 
 	local MuseumStatus = is_opened("Museum")
-	if MuseumStatus == "open" or MuseumStatus == "closed" then
+	if MuseumStatus == "open"  then
 		
 		if _G.AutoRobbing == true then 
 			print(is_opened("Museum"))
