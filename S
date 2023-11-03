@@ -2125,7 +2125,7 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 	if is_opened("Jewelrys") == "Open" or is_opened("Jewelrys") == "Closed" then
 		print(is_opened("Jewelrys"))
 		-- Check if the condition for your loop has been met
-		if indicator.Transparency == 0.8999999761581421 then
+	
 
 			print("Teleporting to jewelry store")
 			local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
@@ -2555,7 +2555,7 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 			teleport(CFrame.new(82.78319549560547, 245.3197479248047, 1498.57080078125));
 
 			Baseplate()
-		print("Bypassing by waiting 15")
+			print("Bypassing by waiting 15")
 			wait(1)
 			print("Bypassing by waiting 14")
 			wait(1)
@@ -2594,7 +2594,7 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 
 
 
-end
+		end
 		--18th 
 
 
@@ -2602,7 +2602,7 @@ end
 		if is_opened("Museum") == "Open" or is_opened("Museum") == "Closed" then
 
 
-			if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
+			
 
 
 				print("Teleporting to the Museum")
@@ -2804,19 +2804,11 @@ end
 				_G.AutoRobbing = false
 				Baseplate()
 
-				
 
-				if is_opened("Bank") == "Open" or is_opened("Bank") == "Closed" then
-					
-					print(is_opened("Bank"))
-					
-					
-					
-					
-					
-				end
-end
-		end
+
+				
+			
+		
 	end
 end)
 
@@ -2887,5 +2879,5 @@ function Baseplate()
 end
 
 function BSD()
-	baseplate:Destroy()
+	Baseplate():Destroy()
 end
