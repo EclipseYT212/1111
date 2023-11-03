@@ -2577,8 +2577,7 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 		local MuseumStatus = is_opened("Museum")
 		if MuseumStatus == "open"  then
 
-			if _G.AutoRobbing == true then 
-				if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
+			if _G.AutoRobbing == true then
 					print(is_opened("Museum"))
 					wait(1) 
 					print("Going to Museum...")
