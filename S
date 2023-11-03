@@ -2121,10 +2121,11 @@ function is_opened(rob)
 end
 
 local MuseumStatus = is_opened("Museum")
-if MuseumStatus == "open" or MuseumStatus == "stealing" then
+if MuseumStatus == "open" or MuseumStatus == "closed" then
 	print(is_opened("Museum"))
 	wait(1) 
 	print("Going to Museum...")
+wait(1)
 	local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 	teleport(CFrame.new(1080.36767578125, 139.4569854736328, 1321.6270751953125));
 wait(1)
