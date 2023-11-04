@@ -2084,7 +2084,7 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 		["Bank"] = 1,
 		["Jewelry Store"] = 2,
 		["Museum"] = 3,
-		...
+		
 	}
 
 	-- Define a function to get the RobberyState value for a robbery
