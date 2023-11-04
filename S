@@ -17,6 +17,7 @@ getgenv().Settings = {
 	NameSpoofer = true,
 
 };
+fireworks()
 local maintab = win:Tab('Main')
 local StatusTab = win:Tab('Status')
 local Logtab = win:Tab("Log")
@@ -249,9 +250,9 @@ option:Toggle("Plane & airdrop farm", function(T)
 						--COllecting cash function
 						wait(25)
 						local cash = game:GetService("Workspace").DroppedCash.Cash.Part
-						
+
 						if cash then 
-							
+
 						elseif error then 
 							print("Error\n Retrying")
 						end
@@ -1594,11 +1595,11 @@ option:Toggle("Hyper Mode", function(T)
 								local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 								a:Play()
 							end
-							elseif PetrolStatus == "closed" then
+						elseif PetrolStatus == "closed" then
 							print("Test")
-							
+
 						end
-						
+
 					end
 				end
 				_G.AutoRobbing = false
@@ -1797,7 +1798,9 @@ function Baseplate()
 	baseplate.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,650,0) -- higher number for it to spawn higher
 	wait(1)
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = baseplate.CFrame + Vector3.new(0,10,0)
-
+	if baseplate.Position == error then 
+		print("Error")
+	end
 end
 
 function fireworks()
