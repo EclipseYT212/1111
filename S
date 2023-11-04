@@ -17,7 +17,6 @@ getgenv().Settings = {
 	NameSpoofer = true,
 
 };
-
 local maintab = win:Tab('Main')
 local StatusTab = win:Tab('Status')
 local Logtab = win:Tab("Log")
