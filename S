@@ -100,7 +100,7 @@ option:Toggle("Plane & airdrop farm", function(T)
 		Baseplate()
 		TextBox.Text = "Waiting for Drops or Plane!"
 		_G.Farmer = true
-		while wait(2)  do 
+		while wait()  do 
 
 
 			if CheckPlane() then
@@ -120,10 +120,10 @@ option:Toggle("Plane & airdrop farm", function(T)
 
 
 
-				wait(2)
+				wait(1)
 				TextBox.Text = ("Going inside plane")
 				local pos = Vector3.new(5-1169.8582763671875, 44.35041809082031, 2905.92236328125) -- your pos here
-				local delay = 1 -- tp tween speed like how many seconds takes to tp
+				local delay = 0.3 -- tp tween speed like how many seconds takes to tp
 
 				-- do not edit below cuz breaks script
 
