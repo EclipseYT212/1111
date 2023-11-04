@@ -2091,7 +2091,7 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 	function get_robbery_state(robberyId)
 		local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(robberyId)
 		if State == nil then
-			return 0
+			return "closed"
 		else
 			return State.Value
 		end
@@ -2100,7 +2100,7 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 	-- Define a function to check if a robbery is open
 	function is_robbery_open(robberyId)
 		local robberyState = get_robbery_state(robberyId)
-		if robberyState == 1 then
+		if robberyState == "open" then
 			return true
 		else
 			return false
@@ -2111,6 +2111,8 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 	local bankIsOpen = is_robbery_open(RobberyIds["Bank"])
 	if bankIsOpen then
 		print("Test")
+	else
+		print("The bank robbery is closed.")
 	end
 
 
