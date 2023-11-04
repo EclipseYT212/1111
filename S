@@ -2110,20 +2110,20 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 		local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
 
 		if State == nil then
-			return 'closed'
+			return 'Closed'
 		elseif State.Value == 1 then
-			return 'open'
+			return 'Open'
 		elseif State.Value == 2 then
-			return 'stealing'
+			return 'Stealing'
 		else
-			return 'closed'
+			return 'Closed'
 		end
 	end
 
 
 
 	local JewlStatus = is_opened("Jewelrys")
-	if JewlStatus == "open" then
+	if JewlStatus == "Open" then
 
 		if _G.AutoRobbing == true then 
 			print(is_opened("Jewelrys"))
@@ -2575,7 +2575,7 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 		end
 
 		local MuseumStatus = is_opened("Museum")
-		if MuseumStatus == "open"  then
+		if MuseumStatus == "Open"  then
 
 			if _G.AutoRobbing == true then
 				print(is_opened("Museum"))
