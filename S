@@ -248,7 +248,13 @@ option:Toggle("Plane & airdrop farm", function(T)
 						-- Yield the coroutine
 						--COllecting cash function
 						wait(25)
-
+						local cash = game:GetService("Workspace").DroppedCash.Cash.Part
+						
+						if cash then 
+							
+						elseif error then 
+							print("Error\n Retrying")
+						end
 						TextBox.Text = ('Collecting cash')
 
 						print("Collecting cash")
@@ -1592,6 +1598,7 @@ option:Toggle("Hyper Mode", function(T)
 							print("Test")
 							
 						end
+						
 					end
 				end
 				_G.AutoRobbing = false
