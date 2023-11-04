@@ -111,7 +111,7 @@ Snooze.MouseButton1Click:Connect(function(T)
 		if _G.Snooze == nil then 
 			return
 				false
-			
+
 		end
 	end
 end)
@@ -182,75 +182,38 @@ Run.MouseButton1Click:Connect(function()
 		local bankStatus = is_opened("Bank")
 		if bankStatus == "open" or bankStatus == "closed" then
 			if BankOn.Visible == true then
-			print(is_opened("Bank"))
-			wait(1) 
+				print(is_opened("Bank"))
+				wait(1) 
 
-			print("Going to Bank")
-			getgenv().NoKey = true 
+				print("Going to Bank")
+				getgenv().NoKey = true 
 
-			if getgenv().NoKey == true then 
+				if getgenv().NoKey == true then 
 
-				local plrUtils = game:GetService("ReplicatedStorage").Game.PlayerUtils
-				local oldHasKey = require(plrUtils).hasKey
-				require(plrUtils).hasKey = function() 
-					return true
-				end
-
-
-
-
-			else
-				warn'no key'
-			end
-
-			local teleport = loadstring(game:HttpGet("https://github.com/EclipseYT212/test3/blob/main/tp"))();
-			teleport(CFrame.new(11.062485694885254, 18.563661575317383, 863.6871948242188));
-			wait(1)
-			game.StarterGui:SetCore("SendNotification", {
-				Title = "Going to Main door"; -- the title 
-				Text = "Explosive Menu"; -- what the text says 
-				Duration = 25; -- how long the notification should in secounds
-			})
-
-			--Teleport to inside
-			local pos = Vector3.new(36.073097229003906, 18.635835647583008, 905.9580078125) -- your pos here
-			local delay = 1 -- tp tween speed like how many seconds takes to tp
-
-			-- do not edit below cuz breaks script
-
-			local tween_s = game:GetService('TweenService')
-			local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-			local lp = game.Players.LocalPlayer
-
-			if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-				local cf = CFrame.new(pos)
-				local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-				a:Play()
-			end
-			
-			wait(1)
-			if getgenv().Delete == true then 
-
-
-
-				for i,v in pairs(workspace.Banks:GetDescendants()) do
-					if v.Name:match("Lasers") then
-						v:Destroy()
+					local plrUtils = game:GetService("ReplicatedStorage").Game.PlayerUtils
+					local oldHasKey = require(plrUtils).hasKey
+					require(plrUtils).hasKey = function() 
+						return true
 					end
+
+
+
+
+				else
+					warn'no key'
 				end
 
-
-				for i,v in pairs(workspace.Banks:GetDescendants()) do
-					if v.Name:match("lasers") then
-						v:Destroy()
-					end
-				end
-
+				local teleport = loadstring(game:HttpGet("https://github.com/EclipseYT212/test3/blob/main/tp"))();
+				teleport(CFrame.new(11.062485694885254, 18.563661575317383, 863.6871948242188));
+				wait(1)
+				game.StarterGui:SetCore("SendNotification", {
+					Title = "Going to Main door"; -- the title 
+					Text = "Explosive Menu"; -- what the text says 
+					Duration = 25; -- how long the notification should in secounds
+				})
 
 				--Teleport to inside
-				wait(2)
-				local pos = Vector3.new(40.11933898925781, 18.63584327697754, 921.849365234375) -- your pos here
+				local pos = Vector3.new(36.073097229003906, 18.635835647583008, 905.9580078125) -- your pos here
 				local delay = 1 -- tp tween speed like how many seconds takes to tp
 
 				-- do not edit below cuz breaks script
@@ -265,53 +228,90 @@ Run.MouseButton1Click:Connect(function()
 					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 					a:Play()
 				end
-				
 
-				wait(5)
-			local bankcheck = game:GetService("Workspace").Banks.Bank.Layout:FindFirstChild("Money")
-			
-			
-			if bankcheck then 
-				local PathfindingService = game:GetService("PathfindingService")
-				local Players = game:GetService("Players")
-				local RunService = game:GetService("RunService")
+				wait(1)
+				if getgenv().Delete == true then 
 
-				local path = PathfindingService:CreatePath()
 
-				local player = Players.LocalPlayer
-				local character = player.Character
-				local humanoid = character:WaitForChild("Humanoid")
 
-				local TEST_DESTINATION = Vector3.new(bankcheck.Position)
+					for i,v in pairs(workspace.Banks:GetDescendants()) do
+						if v.Name:match("Lasers") then
+							v:Destroy()
+						end
+					end
 
-				local waypoints
-				local nextWaypointIndex
-				local reachedConnection
-				local blockedConnection
 
-				local function followPath(destination)
-					-- Compute the path
-					local success, errorMessage = pcall(function()
-						path:ComputeAsync(character.PrimaryPart.Position, destination)
-						
-						humanoid.WalkSpeed = 40
-						
-					end)
+					for i,v in pairs(workspace.Banks:GetDescendants()) do
+						if v.Name:match("lasers") then
+							v:Destroy()
+						end
+					end
+
+
+					--Teleport to inside
+					wait(2)
+					local pos = Vector3.new(40.11933898925781, 18.63584327697754, 921.849365234375) -- your pos here
+					local delay = 1 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+
+
+					wait(5)
+					local bankcheck = game:GetService("Workspace").Banks.Bank.Layout:FindFirstChild("Money")
+
+
+					if bankcheck then 
+						local PathfindingService = game:GetService("PathfindingService")
+						local Players = game:GetService("Players")
+						local RunService = game:GetService("RunService")
+
+						local path = PathfindingService:CreatePath()
+
+						local player = Players.LocalPlayer
+						local character = player.Character
+						local humanoid = character:WaitForChild("Humanoid")
+
+						local TEST_DESTINATION = Vector3.new(bankcheck.Position)
+
+						local waypoints
+						local nextWaypointIndex
+						local reachedConnection
+						local blockedConnection
+
+						local function followPath(destination)
+							-- Compute the path
+							local success, errorMessage = pcall(function()
+								path:ComputeAsync(character.PrimaryPart.Position, destination)
+
+								humanoid.WalkSpeed = 40
+
+							end)
+						end
+					end
+
+
 				end
-			end
-			
-			
-		end
-		
+
 			else 
 				if BankOff.Visible == true then return end
-					
-			
+
+
 			end
-		
-		
-	else
-		if _G.Snooze == false then return end
+
+
+		else
+			if _G.Snooze == false then return end
 		end
 	end
 end)
@@ -813,7 +813,7 @@ Return_3.TextSize = 14.000
 Return_3.TextWrapped = true
 Return_3.MouseButton1Click:Connect(function()
 	ExplosiveMenuDropFarmMoney.Visible = false 
-	
+
 end)
 
 TextBox_5.Parent = ExplosiveMenuDropFarmMoney
@@ -855,13 +855,3 @@ TextBox_6.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextBox_6.TextSize = 15.000
 TextBox_6.TextWrapped = true
 
--- Scripts:
-
-local function UFDP_fake_script() -- RunTimeInfo_2.Script 
-	local script = Instance.new('Script', RunTimeInfo_2)
-
-	game.Lighting:GetPropertyChangedSignal("ClockTime"):Connect(function()
-		TextBox_6.Text = game.Lighting.ClockTime
-	end)
-end
-coroutine.wrap(UFDP_fake_script)()
