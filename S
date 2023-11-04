@@ -2111,9 +2111,9 @@ features:AddSwitch("Autofarm Wins",function(chickenchickench)
 
 		if State == nil then
 			return 'closed'
-		elseif State.Value == 1 then
-			return 'open'
 		elseif State.Value == 2 then
+			return 'open'
+		elseif State.Value == 1 then
 			return 'stealing'
 		else
 			return 'closed'
