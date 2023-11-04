@@ -2080,38 +2080,38 @@ end)
 features:AddSwitch("Autofarm Wins",function(chickenchickench)
 	_G.AutoRobbing = chickenchickench
 	-- Create a lookup table to get the ID of a robbery
-	local RobberyIds = {
-		["Bank"] = 1,
-		["Jewelry Store"] = 2,
-		["Museum"] = 3,
-		...
-	}
+local RobberyIds = {
+  ["Bank"] = 1,
+  ["Jewelry Store"] = 2,
+  ["Museum"] = 3,
+  
+}
 
-	-- Define a function to get the RobberyState value for a robbery
-	function get_robbery_state(robberyId)
-		local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(robberyId)
-		if State == nil then
-			return 0
-		else
-			return State.Value
-		end
-	end
+-- Define a function to get the RobberyState value for a robbery
+function get_robbery_state(robberyId)
+  local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(robberyId)
+  if State == nil then
+    return 0
+  else
+    return State.Value
+  end
+end
 
-	-- Define a function to check if a robbery is open
-	function is_robbery_open(robberyId)
-		local robberyState = get_robbery_state(robberyId)
-		if robberyState == 1 then
-			return true
-		else
-			return false
-		end
-	end
+-- Define a function to check if a robbery is open
+function is_robbery_open(robberyId)
+  local robberyState = get_robbery_state(robberyId)
+  if robberyState == 1 then
+    return true
+  else
+    return false
+  end
+end
 
-	-- Check the status of the bank robbery and print "Test" if it is open or closed
-	local bankIsOpen = is_robbery_open(RobberyIds["Bank"])
-	if bankIsOpen then
-		print("Test")
-	end
+-- Check the status of the bank robbery and print "Test" if it is open or closed
+local bankIsOpen = is_robbery_open(RobberyIds["Bank"])
+if bankIsOpen then
+  print(is_robbery_open("Bank"))
+end
 
 
 end)
