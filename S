@@ -627,210 +627,215 @@ option:Toggle("Hyper Mode", function(T)
 			end
 			local MusStatus = is_opened("Museum")
 			if MusStatus == "open" then
-				print("Museum is open")
-				TextBox.Text = "Teleporting to the Museum"
-				local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
-				teleport(CFrame.new(1080.36767578125, 139.4569854736328, 1321.6270751953125));
 
-				for i,v in pairs(workspace.Museum:GetDescendants()) do
-					if v.Name:match("Lights") then
-						v:Destroy()
+				-- Check if the condition for your loop has been met
+
+				if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
+
+
+					TextBox.Text = "Teleporting to the Museum"
+					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
+					teleport(CFrame.new(1080.36767578125, 139.4569854736328, 1321.6270751953125));
+
+					for i,v in pairs(workspace.Museum:GetDescendants()) do
+						if v.Name:match("Lights") then
+							v:Destroy()
+						end
 					end
+					wait(1)
+
+					TextBox.Text = "Robbing...."
+					local VirtualInputManager = game:GetService('VirtualInputManager')
+
+					VirtualInputManager:SendKeyEvent(true,"E",false,game)
+					local pos = Vector3.new(1087.4005126953125, 122.05658721923828, 1321.7193603515625) -- your pos here
+					local delay = 0.3 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					wait(5)
+					local VirtualInputManager = game:GetService('VirtualInputManager')
+
+					VirtualInputManager:SendKeyEvent(true,"E",false,game)
+					local pos = Vector3.new(1085.9122314453125, 122.05582427978516, 1381.45947265625) -- your pos here
+					local delay = 1 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					wait(5)
+					local VirtualInputManager = game:GetService('VirtualInputManager')
+
+					VirtualInputManager:SendKeyEvent(true,"E",false,game)
+					local pos = Vector3.new(1076.2733154296875, 122.05582427978516, 1372.4691162109375
+					) -- your pos here
+					local delay = 0.30 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					wait(5)
+
+					TextBox.Text = "Selling"
+					local pos = Vector3.new(1087.4005126953125, 122.05658721923828, 1321.7193603515625) -- your pos here
+					local delay = 1 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					wait(1)
+					local pos = Vector3.new(1089.622802734375, 125.55658721923828, 1318.7562255859375) -- your pos here
+					local delay = 2 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					wait(2)
+					local pos = Vector3.new(1074.760986328125, 139.4569549560547, 1308.9547119140625) -- your pos here
+					local delay = 0.3 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					wait(0)
+					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
+					teleport(CFrame.new(2278.850830078125, 23.838319778442383, -2047.63232421875));
+
+
+					wait(0.3)
+
+					local pos = Vector3.new(2221.552001953125, 19.567420959472656, -2447.009765625) -- your pos here
+					local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					wait(3)
+					local pos = Vector3.new(2292.545654296875, 19.805152893066406, -2589.681396484375) -- your pos here
+					local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					wait(3)
+					local pos = Vector3.new(2221.552001953125, 19.567420959472656, -2447.009765625) -- your pos here
+					local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					wait(3)
+					local pos = Vector3.new(2279.58154296875, 19.21677017211914, -2067.020751953125) -- your pos here
+					local delay = 3 -- tp tween speed like how many seconds takes to tp
+
+					-- do not edit below cuz breaks script
+
+					local tween_s = game:GetService('TweenService')
+					local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
+
+					local lp = game.Players.LocalPlayer
+
+					if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
+						local cf = CFrame.new(pos)
+						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+						a:Play()
+					end
+					print'Autorob V0.5 finished'
+
+
+					local VirtualInputManager = game:GetService('VirtualInputManager')
+
+					VirtualInputManager:SendKeyEvent(true,"E",false,game)
+
+					_G.AutoRobbing = false
+					Baseplate()
+
+				elseif MusStatus == "closed" then
+					print("Museum is closed...")
 				end
-				wait(1)
-
-				TextBox.Text = "Robbing...."
-				local VirtualInputManager = game:GetService('VirtualInputManager')
-
-				VirtualInputManager:SendKeyEvent(true,"E",false,game)
-				local pos = Vector3.new(1087.4005126953125, 122.05658721923828, 1321.7193603515625) -- your pos here
-				local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(2)
-				local VirtualInputManager = game:GetService('VirtualInputManager')
-
-				VirtualInputManager:SendKeyEvent(true,"E",false,game)
-				local pos = Vector3.new(1085.9122314453125, 122.05582427978516, 1381.45947265625) -- your pos here
-				local delay = 1 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(5)
-				local VirtualInputManager = game:GetService('VirtualInputManager')
-
-				VirtualInputManager:SendKeyEvent(true,"E",false,game)
-				local pos = Vector3.new(1076.2733154296875, 122.05582427978516, 1372.4691162109375
-				) -- your pos here
-				local delay = 0.30 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(5)
-
-				TextBox.Text = "Selling"
-				local pos = Vector3.new(1087.4005126953125, 122.05658721923828, 1321.7193603515625) -- your pos here
-				local delay = 1 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Quad)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(1)
-				local pos = Vector3.new(1089.622802734375, 125.55658721923828, 1318.7562255859375) -- your pos here
-				local delay = 2 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(2)
-				local pos = Vector3.new(1074.760986328125, 139.4569549560547, 1308.9547119140625) -- your pos here
-				local delay = 0.3 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(0)
-				local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
-				teleport(CFrame.new(2278.850830078125, 23.838319778442383, -2047.63232421875));
-
-
-				wait(0.3)
-
-				local pos = Vector3.new(2221.552001953125, 19.567420959472656, -2447.009765625) -- your pos here
-				local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(3)
-				local pos = Vector3.new(2292.545654296875, 19.805152893066406, -2589.681396484375) -- your pos here
-				local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(3)
-				local pos = Vector3.new(2221.552001953125, 19.567420959472656, -2447.009765625) -- your pos here
-				local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				wait(3)
-				local pos = Vector3.new(2279.58154296875, 19.21677017211914, -2067.020751953125) -- your pos here
-				local delay = 3 -- tp tween speed like how many seconds takes to tp
-
-				-- do not edit below cuz breaks script
-
-				local tween_s = game:GetService('TweenService')
-				local tweeninfo = TweenInfo.new(delay,Enum.EasingStyle.Linear)
-
-				local lp = game.Players.LocalPlayer
-
-				if lp.Character and lp.Character:FindFirstChild('HumanoidRootPart') then
-					local cf = CFrame.new(pos)
-					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
-					a:Play()
-				end
-				print'Autorob V0.5 finished'
-
-
-				local VirtualInputManager = game:GetService('VirtualInputManager')
-
-				VirtualInputManager:SendKeyEvent(true,"E",false,game)
-
-				_G.AutoRobbing = false
-				Baseplate()
-
-			elseif MusStatus == "closed" then
-				print("Museum is closed...")
-				end
-			
+end
 
 				local tombStatus = is_opened("Tomb")
 				if tombStatus == "open" then 
@@ -1041,7 +1046,7 @@ option:Toggle("Hyper Mode", function(T)
 							Text = "Explosive Menu"; -- what the text says 
 							Duration = 10; -- how long the notification should in secounds
 						})
-wait(1)
+						wait(1)
 						local teleport = loadstring(game:HttpGet("https://pastebin.com/raw/CJv2dywH"))();
 						teleport(CFrame.new(-1541.2366943359375, 18.396137237548828, 708.3771362304688
 							));
@@ -1606,139 +1611,139 @@ wait(1)
 						Baseplate()
 						TextBox.Text = ("Waiting For Stores To Open")
 
-					
-				
+
+
+					end
+				end
+				_G.AutoRobbing = false
+				-- Break out of the loop
+
+
+
+				indicator.Transparency = 0 
+				wait(2)
+				TextBox.Text = "Waiting for stores to open"
+
+
+			end)
+
+		warning.Name = "warning"
+		warning.Parent = MainTab
+		warning.BackgroundTransparency = 1.000
+		warning.Position = UDim2.new(0.395721912, 0, 0.440476179, 0)
+		warning.Size = UDim2.new(0, 75, 0, 54)
+		warning.Visible = false
+		warning.ZIndex = 2
+		warning.Image = "rbxassetid://3926305904"
+		warning.ImageColor3 = Color3.fromRGB(255, 0, 0)
+		warning.ImageRectOffset = Vector2.new(364, 324)
+		warning.ImageRectSize = Vector2.new(36, 36)
+
+		OptionsBar.Name = "OptionsBar"
+		OptionsBar.Parent = ScreenGui
+		OptionsBar.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+		OptionsBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		OptionsBar.BorderSizePixel = 0
+		OptionsBar.Position = UDim2.new(0.151253924, 0, 0.257918566, 0)
+		OptionsBar.Size = UDim2.new(0, -106, 0, 252)
+		OptionsBar.Visible = false
+		OptionsBar.Draggable = true
+
+		DeveloperButton.Name = "Developer Button"
+		DeveloperButton.Parent = OptionsBar
+		DeveloperButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+		DeveloperButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		DeveloperButton.BorderSizePixel = 0
+		DeveloperButton.Position = UDim2.new(0.169811323, 0, 0.0674603209, 0)
+		DeveloperButton.Size = UDim2.new(0, 80, 0, 23)
+		DeveloperButton.Font = Enum.Font.LuckiestGuy
+		DeveloperButton.Text = "Dev "
+		DeveloperButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+		DeveloperButton.TextSize = 25.000
+
+		JewlLabel.Name = "JewlLabel"
+		JewlLabel.Parent = OptionsBar
+		JewlLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+		JewlLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		JewlLabel.BorderSizePixel = 0
+		JewlLabel.Position = UDim2.new(0.0849056616, 0, 0.25, 0)
+		JewlLabel.Size = UDim2.new(0, 96, 0, 27)
+		JewlLabel.Font = Enum.Font.LuckiestGuy
+		JewlLabel.Text = "Jewelry"
+		JewlLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+		JewlLabel.TextSize = 25.000
+		local function myLoop()
+			-- Check if the condition for your loop has been met
+			if indicator.Transparency == 0.8999999761581421 then
+				JewlLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
+				-- Yield the coroutine
+				return
 			end
+
+			JewlLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
 		end
-		_G.AutoRobbing = false
-		-- Break out of the loop
+		RunService.Heartbeat:Connect(myLoop)
+		MuseumLabel.Name = "MuseumLabel"
+		MuseumLabel.Parent = OptionsBar
+		MuseumLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+		MuseumLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		MuseumLabel.BorderSizePixel = 0
+		MuseumLabel.Position = UDim2.new(0.0754716992, 0, 0.428571433, 0)
+		MuseumLabel.Size = UDim2.new(0, 96, 0, 27)
+		MuseumLabel.Font = Enum.Font.LuckiestGuy
+		MuseumLabel.Text = "Museum"
+		MuseumLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+		MuseumLabel.TextSize = 20.000
+		local function myLoop1()
+			-- Check if the condition for your loop has been met
+			if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
+				MuseumLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
+				-- Yield the coroutine
+				return
+			end
+
+			MuseumLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
+		end
+
+		RunService.Heartbeat:Connect(myLoop1)
+		BankLabel.Name = "BankLabel"
+		BankLabel.Parent = OptionsBar
+		BankLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+		BankLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		BankLabel.BorderSizePixel = 0
+		BankLabel.Position = UDim2.new(0.0754716992, 0, 0.547619045, 0)
+		BankLabel.Size = UDim2.new(0, 96, 0, 27)
+		BankLabel.Font = Enum.Font.LuckiestGuy
+		BankLabel.Text = "Bank"
+		BankLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+		BankLabel.TextSize = 20.000
+		local function myLoop6()
+			-- Check if the condition for your loop has been met
+			if bank2.Transparency == 0.8999999761581421 then
+				BankLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
+				-- Yield the coroutine
+				return
+			end
+
+			BankLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
+		end
+		RunService.Heartbeat:Connect(myLoop6)
+		CasinoLabel.Name = "CasinoLabel"
+		CasinoLabel.Parent = OptionsBar
+		CasinoLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+		CasinoLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		CasinoLabel.BorderSizePixel = 0
+		CasinoLabel.Position = UDim2.new(0.0754716992, 0, 0.65476191, 0)
+		CasinoLabel.Size = UDim2.new(0, 96, 0, 27)
+		CasinoLabel.Font = Enum.Font.LuckiestGuy
+		CasinoLabel.Text = "AirDrop"
+		CasinoLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+		CasinoLabel.TextSize = 20.000
 
 
-
-		indicator.Transparency = 0 
-		wait(2)
-		TextBox.Text = "Waiting for stores to open"
-
-
-end)
-
-warning.Name = "warning"
-warning.Parent = MainTab
-warning.BackgroundTransparency = 1.000
-warning.Position = UDim2.new(0.395721912, 0, 0.440476179, 0)
-warning.Size = UDim2.new(0, 75, 0, 54)
-warning.Visible = false
-warning.ZIndex = 2
-warning.Image = "rbxassetid://3926305904"
-warning.ImageColor3 = Color3.fromRGB(255, 0, 0)
-warning.ImageRectOffset = Vector2.new(364, 324)
-warning.ImageRectSize = Vector2.new(36, 36)
-
-OptionsBar.Name = "OptionsBar"
-OptionsBar.Parent = ScreenGui
-OptionsBar.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-OptionsBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
-OptionsBar.BorderSizePixel = 0
-OptionsBar.Position = UDim2.new(0.151253924, 0, 0.257918566, 0)
-OptionsBar.Size = UDim2.new(0, -106, 0, 252)
-OptionsBar.Visible = false
-OptionsBar.Draggable = true
-
-DeveloperButton.Name = "Developer Button"
-DeveloperButton.Parent = OptionsBar
-DeveloperButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-DeveloperButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-DeveloperButton.BorderSizePixel = 0
-DeveloperButton.Position = UDim2.new(0.169811323, 0, 0.0674603209, 0)
-DeveloperButton.Size = UDim2.new(0, 80, 0, 23)
-DeveloperButton.Font = Enum.Font.LuckiestGuy
-DeveloperButton.Text = "Dev "
-DeveloperButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-DeveloperButton.TextSize = 25.000
-
-JewlLabel.Name = "JewlLabel"
-JewlLabel.Parent = OptionsBar
-JewlLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-JewlLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-JewlLabel.BorderSizePixel = 0
-JewlLabel.Position = UDim2.new(0.0849056616, 0, 0.25, 0)
-JewlLabel.Size = UDim2.new(0, 96, 0, 27)
-JewlLabel.Font = Enum.Font.LuckiestGuy
-JewlLabel.Text = "Jewelry"
-JewlLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-JewlLabel.TextSize = 25.000
-local function myLoop()
-	-- Check if the condition for your loop has been met
-	if indicator.Transparency == 0.8999999761581421 then
-		JewlLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
-		-- Yield the coroutine
-		return
+	else
+		warn("Wrong game.... Sorry!")
 	end
-
-	JewlLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
-end
-RunService.Heartbeat:Connect(myLoop)
-MuseumLabel.Name = "MuseumLabel"
-MuseumLabel.Parent = OptionsBar
-MuseumLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-MuseumLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-MuseumLabel.BorderSizePixel = 0
-MuseumLabel.Position = UDim2.new(0.0754716992, 0, 0.428571433, 0)
-MuseumLabel.Size = UDim2.new(0, 96, 0, 27)
-MuseumLabel.Font = Enum.Font.LuckiestGuy
-MuseumLabel.Text = "Museum"
-MuseumLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-MuseumLabel.TextSize = 20.000
-local function myLoop1()
-	-- Check if the condition for your loop has been met
-	if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
-		MuseumLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
-		-- Yield the coroutine
-		return
-	end
-
-	MuseumLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
-end
-
-RunService.Heartbeat:Connect(myLoop1)
-BankLabel.Name = "BankLabel"
-BankLabel.Parent = OptionsBar
-BankLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-BankLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-BankLabel.BorderSizePixel = 0
-BankLabel.Position = UDim2.new(0.0754716992, 0, 0.547619045, 0)
-BankLabel.Size = UDim2.new(0, 96, 0, 27)
-BankLabel.Font = Enum.Font.LuckiestGuy
-BankLabel.Text = "Bank"
-BankLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-BankLabel.TextSize = 20.000
-local function myLoop6()
-	-- Check if the condition for your loop has been met
-	if bank2.Transparency == 0.8999999761581421 then
-		BankLabel.TextColor3 = Color3.new(0.333333, 0.666667, 0) -- set to open
-		-- Yield the coroutine
-		return
-	end
-
-	BankLabel.TextColor3 = Color3.new(1, 0, 0) -- set to closed
-end
-RunService.Heartbeat:Connect(myLoop6)
-CasinoLabel.Name = "CasinoLabel"
-CasinoLabel.Parent = OptionsBar
-CasinoLabel.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-CasinoLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-CasinoLabel.BorderSizePixel = 0
-CasinoLabel.Position = UDim2.new(0.0754716992, 0, 0.65476191, 0)
-CasinoLabel.Size = UDim2.new(0, 96, 0, 27)
-CasinoLabel.Font = Enum.Font.LuckiestGuy
-CasinoLabel.Text = "AirDrop"
-CasinoLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-CasinoLabel.TextSize = 20.000
-
-
-else
-	warn("Wrong game.... Sorry!")
-end
 end)
 
 
