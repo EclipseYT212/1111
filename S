@@ -622,7 +622,8 @@ if DonutStatus == "open" then
 print("Donut shop is open")
 print("Teleporting...")
 
-else 
+elseif DonutStatus == "closed" then
+							print("DonutShopClosed...")
 
 			local CasStatus = is_opened("Casino")
 			if CasStatus == "open" then
