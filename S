@@ -575,7 +575,7 @@ option:Toggle("Hyper Mode", function(T)
 		power.MouseButton1Click:Connect(function(Value)
 			_G.AutoRobbing = nil
 			Baseplate()
-			while wait(2) do
+			
 
 				local Robberys = {
 					['1'] = 'Bank',
@@ -928,7 +928,7 @@ option:Toggle("Hyper Mode", function(T)
 
 
 
-
+while wait(2) do
 					-- Check if the condition for your loop has been met
 
 					if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
@@ -964,7 +964,7 @@ option:Toggle("Hyper Mode", function(T)
 							local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 							a:Play()
 						end
-						wait(5)
+						wait(2)
 						local VirtualInputManager = game:GetService('VirtualInputManager')
 
 						VirtualInputManager:SendKeyEvent(true,"E",false,game)
