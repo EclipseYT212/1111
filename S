@@ -633,7 +633,7 @@ option:Toggle("Hyper Mode", function(T)
 				end
 			end
 			wait(1)
-			if not checkmuseum() then 
+			if  checkmuseum() then 
 
 
 				-- Check if the condition for your loop has been met
