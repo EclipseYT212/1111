@@ -100,7 +100,7 @@ option:Toggle("Plane & airdrop farm", function(T)
 		Baseplate()
 		TextBox.Text = "Waiting for Drops or Plane!"
 		_G.Farmer = true
-		while wait()  do 
+		while wait(1)  do 
 
 
 			if CheckPlane() then
