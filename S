@@ -1047,7 +1047,7 @@ option:Toggle("Hyper Mode", function(T)
 						Duration = 10; -- how long the notification should in secounds
 					})
 					wait(3)
-					local teleport = loadstring(game:HttpGet("https://pastebin.com/raw/CJv2dywH"))();
+					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 					teleport(CFrame.new(-1541.2366943359375, 18.396137237548828, 708.3771362304688));
 
 					wait(1)
