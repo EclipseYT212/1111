@@ -1046,10 +1046,9 @@ end
 							Text = "Explosive Menu"; -- what the text says 
 							Duration = 10; -- how long the notification should in secounds
 						})
-						wait(1)
+						wait(3)
 						local teleport = loadstring(game:HttpGet("https://pastebin.com/raw/CJv2dywH"))();
-						teleport(CFrame.new(-1541.2366943359375, 18.396137237548828, 708.3771362304688
-							));
+						teleport(CFrame.new(-1541.2366943359375, 18.396137237548828, 708.3771362304688));
 
 						wait(1)
 
@@ -1059,7 +1058,7 @@ end
 							Duration = 10; -- how long the notification should in secounds
 						})
 
-						wait(1)
+						wait(2)
 						local pos = Vector3.new(-1595.452880859375, 18.496137619018555, 709.9278564453125) -- your pos here
 						local delay = 5 -- tp tween speed like how many seconds takes to tp
 
