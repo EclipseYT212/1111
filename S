@@ -39,7 +39,7 @@ function is_opened(rob)
     end
 end
 
-local bankStatus = is_opened("DonutShop")
-if bankStatus == "open" or bankStatus == "closed" then
-    print(is_opened("DonutShop"))
+local DonutStatus = is_opened("DonutShop")
+if DonutStatus == "open" or DonutStatus == "closed" then
+    print("Test")
 end
