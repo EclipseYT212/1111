@@ -837,7 +837,7 @@ option:Toggle("Hyper Mode", function(T)
 
 
 				
-				local PetrolStatus = is_opened3("GasStation")
+				local PetrolStatus = is_opened("GasStation")
 
 				if PetrolStatus == "open" then 
 					game.StarterGui:SetCore("SendNotification", {
