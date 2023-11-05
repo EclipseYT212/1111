@@ -609,7 +609,7 @@ option:Toggle("Hyper Mode", function(T)
 
 				if State == nil then
 					return 'closed'
-				elseif State.Value == 1 then
+				elseif State.Value == 16 then
 					return 'open'
 				elseif State.Value == 2 then
 					return 'stealing'
@@ -617,6 +617,8 @@ option:Toggle("Hyper Mode", function(T)
 					return 'closed'
 				end
 			end
+			
+			
 			local DonutStatus = is_opened1("DonutShop")
 			if DonutStatus == "open" then  
 				print("Donut shop is open")
@@ -1077,7 +1079,23 @@ option:Toggle("Hyper Mode", function(T)
 			else if tombStatus == "closed" then
 					print("Tomb is closed")
 				end
-				local PetrolStatus = is_opened1("GasStation")
+				function is_opened3(rob)
+					local theft = get_rob(rob)
+
+					local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
+
+					if State == nil then
+						return 'closed'
+					elseif State.Value == 1 then
+						return 'open'
+					elseif State.Value == 2 then
+						return 'stealing'
+					else
+						return 'closed'
+					end
+				end
+				local PetrolStatus = is_opened3("GasStation")
+				
 				if PetrolStatus == "open" then 
 					game.StarterGui:SetCore("SendNotification", {
 						Title = "Teleporting to the Petrol Station"; -- the title 
