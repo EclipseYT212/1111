@@ -611,7 +611,7 @@ option:Toggle("Hyper Mode", function(T)
 					return 'closed'
 				elseif State.Value == 1 then
 					return 'open'
-				elseif State.Value == 5 then
+				elseif State.Value == 3 then
 					return 'stealing'
 				else
 					return 'closed'
