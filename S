@@ -3,7 +3,7 @@
 local BlekLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laderite/bleklib/main/library.lua"))()
 
 local win = BlekLib:Create({
-	Name = "Explosive Menu[ALPHA] V2.0",
+	Name = "Explosive Menu[ALPHA] V2.3",
 	StartupSound = {
 		Toggle = true,
 		SoundID = "rbxassetid://6958727243", -- Win 11 Startup Sound
@@ -609,7 +609,7 @@ option:Toggle("Hyper Mode", function(T)
 
 				if State == nil then
 					return 'closed'
-				elseif State.Value == 16 then
+				elseif State.Value == 1 then
 					return 'open'
 				elseif State.Value == 2 then
 					return 'stealing'
