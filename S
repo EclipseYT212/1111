@@ -632,7 +632,10 @@ print(is_opened("Casino"))
 
 
 
-			else
+			elseif CasStatus == "closed" then
+print("Casino is Closed...")
+
+else 
 				local MusStatus = is_opened("Museum")
 				if MusStatus == "open" then
 
