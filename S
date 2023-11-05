@@ -3,7 +3,7 @@
 local BlekLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laderite/bleklib/main/library.lua"))()
 
 local win = BlekLib:Create({
-	Name = "Explosive Menu[ALPHA] V2.0",
+	Name = "Explosive Menu[ALPHA] V4",
 	StartupSound = {
 		Toggle = true,
 		SoundID = "rbxassetid://6958727243", -- Win 11 Startup Sound
