@@ -1227,7 +1227,7 @@ end
 					teleport(CFrame.new(150, 18, 1373));
 
 
-					wait(3)
+					wait(2)
 
 					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
 						if v.Name:match("Lasers") then
@@ -1243,6 +1243,17 @@ end
 					wait(1)
 					for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
 						if v.Name:match("Cameras") then
+							v:Destroy()
+						end
+					end 
+
+	for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
+						if v.Name:match("CameraFloors") then
+							v:Destroy()
+						end
+					end 
+	for i,v in pairs(workspace.Jewelrys:GetDescendants()) do
+						if v.Name:match("Camerafloors") then
 							v:Destroy()
 						end
 					end 
