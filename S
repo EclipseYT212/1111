@@ -587,7 +587,7 @@ option:Toggle("Hyper Mode", function(T)
 				['7'] = 'Cargo Ship',
 				['8'] = 'Cargo Plane',
 				['9'] = 'GasStation',
-				['10'] = 'DonutShop',
+				['10'] = 'DonutStore',
 				['11'] = 'Money Truck',
 				['12'] = 'Home Vault',
 				['13'] = 'Tomb',
@@ -609,7 +609,7 @@ option:Toggle("Hyper Mode", function(T)
 
 				if State == nil then
 					return 'closed'
-				elseif State.Value == 1 then
+				elseif State.Value == 10 then
 					return 'open'
 				elseif State.Value == 2 then
 					return 'stealing'
@@ -619,7 +619,7 @@ option:Toggle("Hyper Mode", function(T)
 			end
 
 
-			local DonutStatus = is_opened("DonutShop")
+			local DonutStatus = is_opened("DonutStore")
 			if DonutStatus == "open" then  
 				print("Donut shop is open")
 
@@ -628,8 +628,45 @@ option:Toggle("Hyper Mode", function(T)
 				print("DonutShopClosed...")
 			end
 
+			function is_opened1(rob)
+				local theft = get_rob(rob)
 
-			
+				local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
+
+				if State == nil then
+					return 'closed'
+				elseif State.Value == 14 then
+					return 'open'
+				elseif State.Value == 13 then
+					return 'stealing'
+				else
+					return 'closed'
+				end
+			end
+
+			local casstatus = is_opened("Casino")
+			if casstatus == "open" then 
+				print(is_opened("Casino"))
+				
+			elseif casstatus == "closed" then 
+				print("Casino is Closed...")
+			end
+			function is_opened3(rob)
+				local theft = get_rob(rob)
+
+				local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
+
+				if State == nil then
+					return 'closed'
+				elseif State.Value == 13 then
+					return 'open'
+				elseif State.Value == 2 then
+					return 'stealing'
+				else
+					return 'closed'
+				end
+			end
+
 			local tombStatus = is_opened("Tomb")
 			if tombStatus == "open" then 
 
@@ -836,8 +873,22 @@ option:Toggle("Hyper Mode", function(T)
 
 
 
-				
-				local PetrolStatus = is_opened("GasStation")
+				function is_opened4(rob)
+					local theft = get_rob(rob)
+
+					local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
+
+					if State == nil then
+						return 'closed'
+					elseif State.Value == 9 then
+						return 'open'
+					elseif State.Value == 2 then
+						return 'stealing'
+					else
+						return 'closed'
+					end
+				end
+				local PetrolStatus = is_opened4("GasStation")
 
 				if PetrolStatus == "open" then 
 					game.StarterGui:SetCore("SendNotification", {
