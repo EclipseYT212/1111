@@ -988,12 +988,12 @@ option:Toggle("Hyper Mode", function(T)
 					end
 				end
 				wait(1)
-				if  checkmuseum() then 
+				if not checkmuseum() then 
 
 
 					-- Check if the condition for your loop has been met
 
-
+if RoofHolePart.Transparency == 1 then
 
 
 					TextBox.Text = "Teleporting to the Museum"
@@ -1213,7 +1213,7 @@ option:Toggle("Hyper Mode", function(T)
 					Baseplate()
 
 				end
-
+end
 
 
 
