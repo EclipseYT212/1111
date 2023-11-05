@@ -607,11 +607,11 @@ option:Toggle("Hyper Mode", function(T)
 
 				local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
 
-				if State == nil then
+				if State == 0 then
 					return 'closed'
-				elseif State.Value == 5 then
-					return 'open'
 				elseif State.Value == 3 then
+					return 'open'
+				elseif State.Value == 5 then
 					return 'stealing'
 				else
 					return 'closed'
