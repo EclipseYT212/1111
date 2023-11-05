@@ -587,7 +587,7 @@ option:Toggle("Hyper Mode", function(T)
 				['7'] = 'Cargo Ship',
 				['8'] = 'Cargo Plane',
 				['9'] = 'GasStation',
-				['10'] = 'Donut Store',
+				['10'] = 'DonutShop',
 				['11'] = 'Money Truck',
 				['12'] = 'Home Vault',
 				['13'] = 'Tomb',
@@ -617,6 +617,13 @@ option:Toggle("Hyper Mode", function(T)
 					return 'closed'
 				end
 			end
+local DonutStatus = is_opened("DonutShop")
+if DonutStatus == "open" then 
+print("Donut shop is open")
+print("Teleporting...")
+
+else 
+
 			local CasStatus = is_opened("Casino")
 			if CasStatus == "open" then
 print(is_opened("Casino"))
@@ -1605,7 +1612,7 @@ print(is_opened("Casino"))
 							Baseplate()
 							TextBox.Text = ("Waiting For Stores To Open")
 
-
+								end
 							end
 						end
 					end
