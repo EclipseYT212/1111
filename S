@@ -619,7 +619,7 @@ option:Toggle("Hyper Mode", function(T)
 			end
 			local CasStatus = is_opened("Casino")
 			if CasStatus == "open" then
-
+print(is_opened("Casino"))
 
 
 
