@@ -609,9 +609,9 @@ option:Toggle("Hyper Mode", function(T)
 
 					if State == nil then
 						return 'closed'
-					elseif State.Value ==4 then
+					elseif State.Value == 2 then
 						return 'open'
-					elseif State.Value == 5 then
+					elseif State.Value == 3 then
 						return 'stealing'
 					else
 						return 'closed'
