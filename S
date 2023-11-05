@@ -928,7 +928,7 @@ option:Toggle("Hyper Mode", function(T)
 
 
 
-while wait(2) do
+
 					-- Check if the condition for your loop has been met
 
 					if  RoofHolePart.Hole.RoofPart.Transparency == 1 then 
@@ -1599,7 +1599,7 @@ while wait(2) do
 						TextBox.Text = ("Waiting For Stores To Open")
 
 
-					end
+					
 				end
 				_G.AutoRobbing = false
 				-- Break out of the loop
