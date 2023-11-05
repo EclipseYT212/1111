@@ -602,7 +602,7 @@ option:Toggle("Hyper Mode", function(T)
 				end
 			end
 
-			function is_opened1(rob)
+			function is_opened(rob)
 				local theft = get_rob(rob)
 
 				local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
@@ -618,7 +618,7 @@ option:Toggle("Hyper Mode", function(T)
 				end
 			end
 
-			local CasStatus = is_opened1("Casino")
+			local CasStatus = is_opened("Casino")
 			if CasStatus == "open" then
 				game.StarterGui:SetCore("SendNotification", {
 					Title = "Teleporting to the Casino"; -- the title 
