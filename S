@@ -3,7 +3,7 @@
 local BlekLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laderite/bleklib/main/library.lua"))()
 
 local win = BlekLib:Create({
-	Name = "Explosive Menu[BETA]",
+	Name = "Explosive Menu[BETA] V2.4",
 	StartupSound = {
 		Toggle = true,
 		SoundID = "rbxassetid://6958727243", -- Win 11 Startup Sound
@@ -609,7 +609,7 @@ option:Toggle("Hyper Mode", function(T)
 
 				if State == nil then
 					return 'closed'
-				elseif State.Value == 1 then
+				elseif State.Value == 2 then
 					return 'open'
 				elseif State.Value == 5 then
 					return 'stealing'
@@ -1134,6 +1134,11 @@ option:Toggle("Hyper Mode", function(T)
 						local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 						a:Play()
 					end
+local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
+					teleport(CFrame.new(-1541.2366943359375, 18.396137237548828, 708.3771362304688));
+wait(2)
+Baseplate()
+PetrolStatus = closed
 				elseif PetrolStatus == "closed" then
 					print("PetrolStation Is Closed...")
 
