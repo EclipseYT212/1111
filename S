@@ -3,7 +3,7 @@
 local BlekLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laderite/bleklib/main/library.lua"))()
 
 local win = BlekLib:Create({
-	Name = "Explosive Menu[BETA] V2.8",
+	Name = "Explosive Menu[BETA] V2.7",
 	StartupSound = {
 		Toggle = true,
 		SoundID = "rbxassetid://6958727243", -- Win 11 Startup Sound
@@ -671,6 +671,23 @@ option:Toggle("Hyper Mode", function(T)
 					local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
 					a:Play()
 				end
+
+				wait(1)
+				for i,v in pairs(require(game:GetService('ReplicatedStorage').Module.UI).CircleAction.Specs) do
+					if rawget(v, "Name") then
+						if string.find(v.Name, "Grab") and v.Name ~= "Grab" then
+							if v.Name == "Grab Bone" and v.Enabled then
+								TP(v.Tag.CFrame)
+								wait(1)
+								for count = 1,8 do
+									v:Callback(true)
+								end
+								break
+							end 
+						end 
+					end 
+
+				end 
 				wait(5)
 				local VirtualInputManager = game:GetService('VirtualInputManager')
 
