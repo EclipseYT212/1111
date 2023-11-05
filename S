@@ -624,7 +624,7 @@ print("Teleporting...")
 
 elseif DonutStatus == "closed" then
 							print("DonutShopClosed...")
-
+else
 			local CasStatus = is_opened("Casino")
 			if CasStatus == "open" then
 print(is_opened("Casino"))
