@@ -602,7 +602,7 @@ option:Toggle("Hyper Mode", function(T)
 				end
 			end
 
-			function is_opened1(rob)
+			function is_opened(rob)
 				local theft = get_rob(rob)
 
 				local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
@@ -619,7 +619,7 @@ option:Toggle("Hyper Mode", function(T)
 			end
 
 
-			local DonutStatus = is_opened1("DonutShop")
+			local DonutStatus = is_opened("DonutShop")
 			if DonutStatus == "open" then  
 				print("Donut shop is open")
 
@@ -629,22 +629,8 @@ option:Toggle("Hyper Mode", function(T)
 			end
 
 
-			function is_opened2(rob)
-				local theft = get_rob(rob)
-
-				local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
-
-				if State == nil then
-					return 'closed'
-				elseif State.Value == 11 then
-					return 'open'
-				elseif State.Value == 2 then
-					return 'stealing'
-				else
-					return 'closed'
-				end
-			end
-			local tombStatus = is_opened2("Tomb")
+			
+			local tombStatus = is_opened("Tomb")
 			if tombStatus == "open" then 
 
 				local teleport = loadstring(game:HttpGet("https://pastebin.com/raw/CJv2dywH"))();
@@ -850,21 +836,7 @@ option:Toggle("Hyper Mode", function(T)
 
 
 
-				function is_opened3(rob)
-					local theft = get_rob(rob)
-
-					local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
-
-					if State == nil then
-						return 'closed'
-					elseif State.Value == 1 then
-						return 'open'
-					elseif State.Value == 2 then
-						return 'stealing'
-					else
-						return 'closed'
-					end
-				end
+				
 				local PetrolStatus = is_opened3("GasStation")
 
 				if PetrolStatus == "open" then 
