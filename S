@@ -638,7 +638,7 @@ print("Casino is Closed...")
 else 
 				local MusStatus = is_opened("Museum")
 				if MusStatus == "open" then
-
+print("Museum is open")
 					TextBox.Text = "Teleporting to the Museum"
 					local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
 					teleport(CFrame.new(1080.36767578125, 139.4569854736328, 1321.6270751953125));
@@ -838,9 +838,9 @@ else
 					_G.AutoRobbing = false
 					Baseplate()
 
-				else
-
-
+				elseif MusStatus == "closed" then
+print("Museum is closed...")
+else
 
 					local tombStatus = is_opened("Tomb")
 					if tombStatus == "open" then 
