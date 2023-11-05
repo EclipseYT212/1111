@@ -43,3 +43,4 @@ local bankStatus = is_opened("Donut Store")
 if bankStatus == "open" or bankStatus == "closed" then
 	print(is_opened("Donut Store"))
 end
+print("Test")
