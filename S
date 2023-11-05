@@ -1026,6 +1026,46 @@ option:Toggle("Hyper Mode", function(T)
 				else if tombStatus == "closed" then
 						print("Tomb is closed")
 					end
+local Robberys = {
+					['1'] = 'Bank',
+					['2'] = 'Jewelry Store',
+					['3'] = 'Museum',
+					['4'] = 'Power Plant',
+					['5'] = 'Passenger Train',
+					['6'] = 'Cargo Train',
+					['7'] = 'Cargo Ship',
+					['8'] = 'Cargo Plane',
+					['9'] = 'GasStation',
+					['10'] = 'Donut Store',
+					['11'] = 'Money Truck',
+					['12'] = 'Home Vault',
+					['13'] = 'Tomb',
+					['14'] = 'Casino',
+					['15'] = 'Mansion'
+				}
+				function get_rob(name)
+					for i, v in pairs(Robberys) do
+						if v:lower() == name:lower() then
+							return i
+						end
+					end
+				end
+
+				function is_opened(rob)
+					local theft = get_rob(rob)
+
+					local State = game:GetService('ReplicatedStorage').RobberyState:FindFirstChild(theft)
+
+					if State == nil then
+						return 'closed'
+					elseif State.Value == 2 then
+						return 'open'
+					elseif State.Value == 4 then
+						return 'stealing'
+					else
+						return 'closed'
+					end
+				end
 					local PetrolStatus = is_opened("GasStation")
 					if PetrolStatus == "open" then 
 						game.StarterGui:SetCore("SendNotification", {
