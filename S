@@ -619,7 +619,7 @@ option:Toggle("Hyper Mode", function(T)
 				end
 			
 			local MusStatus = is_opened("Museum")
-			if MusStatus == is_opened("Museum") then
+			if MusStatus == "closed" then 
 
 				TextBox.Text = "Teleporting to the Museum"
 				local teleport = loadstring(game:HttpGet("https://raw.githubusercontent.com/EclipseYT212/test3/main/tp"))();
